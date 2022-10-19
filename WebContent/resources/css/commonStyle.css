@@ -1,0 +1,59 @@
+/* 공통 */
+@import url('https://fonts.googleapis.com/css2?family=Antic+Didone&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amethysta&family=Antic+Didone&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amethysta&family=Antic+Didone&family=Caladea&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amethysta&family=Antic+Didone&family=Baloo+Bhaina+2&family=Caladea&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amethysta&family=Antic+Didone&family=Baloo+Bhaina+2&family=Caladea&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amethysta&family=Antic+Didone&family=Baloo+Bhaina+2&family=Caladea&display=swap');
+@font-face{
+    font-family: 'Baloo Bhaina 2',;
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://fonts.googleapis.com/css2?family=Amethysta&family=Antic+Didone&family=Baloo+Bhaina+2&family=Caladea&display=swap');
+    unicode-range:U+0041-005A, U+0061-007A, U+0030-0039;
+
+}
+::-webkit-scrollbar {
+  width: 10px;
+    height: 14px;
+    background: #eeeeee;
+    border-radius: 120px;
+}
+::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
+  background: radial-gradient(97.49% 92.29% at 2.51% 49.41%, #4CA3AF 0%, rgba(107, 124, 182, 0.818958) 47.06%, rgba(79, 35, 100, 0.59) 100%) !important;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 569px;
+    background-clip: padding-box;
+    border: 1px solid #ff272700;
+}
+*{
+    margin: 0 auto;
+    padding: 0;
+    font-size: 15px;
+}
+
+.wrap {
+    background: url(../img/bgimg.png) no-repeat 0px 76%;
+    background-size: 100%;
+    width: 100%;
+    height: 100vh;
+}
+.mainHeader{
+    width: 1140px;
+    padding-top: 79px;
+}
+.mainHeader > h1{
+    font-family: 'Antic Didone';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    background: radial-gradient(97.49% 92.29% at 2.51% 49.41%, #4CA3AF 0%, rgba(107, 124, 182, 0.818958) 47.06%, rgba(79, 35, 100, 0.59) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+}
+a{
+  text-decoration: none;
+}
