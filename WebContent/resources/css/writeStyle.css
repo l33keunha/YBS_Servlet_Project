@@ -31,10 +31,13 @@
     /* background: aquamarine; */
     width: 1218px;
 }
-.top > p {
+.top > input {
     width: 685px;
     height: 29px;
     border-bottom: 1px solid #D0D0D0;
+    border-left: none;
+    border-right: none;
+    border-top: none;
     font-family: 'Caladea';
     font-style: normal;
     font-weight: 700;
@@ -59,6 +62,7 @@
     border: none;
     float: right;
     margin-right: 15px;
+    cursor: pointer;
 }
 .top :nth-child(2){background: #b15252;}
 .writeconWrap {
