@@ -1,28 +1,23 @@
 package board.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import board.model.service.BoardService;
-import board.model.vo.BoardVO;
-
 /**
- * Servlet implementation class selectBoardList
+ * Servlet implementation class goBoardWrite
  */
-@WebServlet("/selectBoardList.do")
-public class selectBoardList extends HttpServlet {
+@WebServlet("/goBoardWrite.do")
+public class goBoardWrite extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public selectBoardList() {
+    public goBoardWrite() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,13 +26,9 @@ public class selectBoardList extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		BoardService service = new BoardService();
-		ArrayList<BoardVO> list = service.selectBoardList();
 		
-		BoardVO vo = list.get(0);
+		request.getRequestDispatcher("WEB-INF/views/boardWrite.jsp").forward(request, response);
 		
-		request.setAttribute("title", vo.getTitle());
-		request.getRequestDispatcher("WEB-INF/views/boardList.jsp").forward(request, response);
 	}
 
 	/**

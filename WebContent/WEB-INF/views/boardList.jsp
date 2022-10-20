@@ -9,12 +9,13 @@
         <link rel="stylesheet" type="text/css" href="resources/css/commonStyle.css">
         <link rel="stylesheet" type="text/css" href="resources/css/listStyle.css">
         <script src="resources/js/main.js"></script>
+        <script src="resources/js/onclick.js"></script>
     </head>
     <body>
         <div class="wrap">
             <div class="mainHeader">
                 <h1><a class="header" href="./main.html">INTERNI AND DECO</a></h1>
-                <a href="./write.html"><button class="writeBtn"></button></a>
+                <button class="writeBtn" onclick="goLocation(this)"></button>
             </div>
             <div class="list">
                 <div class="conwrap">
@@ -23,11 +24,9 @@
                             <span><%= request.getAttribute("title") %></span>
                             <span>2022.01.01</span>
                         </div>
-                        <a href="./reWrite.html">
-                            <div class="tablePic">
-                                <button class="mselect" id="mselect" onclick="importantClick()"></button>
-                            </div>
-                        </a>
+                           <div class="tablePic">
+                               <button class="mselect" id="mselect" onclick="importantClick()"></button>
+                           </div>
                     </div>
                 </div>
             </div>
