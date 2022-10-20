@@ -17,6 +17,7 @@ public class BoardDAO {
 	Statement stmt = null;
 	ResultSet rset = null;
 	PreparedStatement pstmt = null;
+	int result = 0;
 	
 	public ArrayList<BoardVO> selectBoardList() {
 		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
@@ -45,33 +46,24 @@ public class BoardDAO {
 		return list;
 	}
 	
-//	public ArrayList<BoardVO> insertBoard(){
-//		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
-//		BoardVO vo = new BoardVO();
-//		
-//		conn = template.getConnection();
-//		query = "INSERT INTO BOARD VALUES (BNO_SEQ.nextval, ?, ?, ?, SYSDATE, NULL, NULL, 5, 0, 'N', 0, 'Y')";
-//		
-//		try {
-//			pstmt = conn.prepareStatement(query);
-//			
-//			//pstmt.setInt(1, )
-//			
-//			
-//			
-//			
-//			
-//			
-//			pstmt.executeUpdate();
-//			
-//			
-//			
-//			System.out.println("--------------------INSERT 성공");
-//			
-//		} catch (SQLException e) {		
-//			e.printStackTrace();
-//		} finally {
-//			template.close(pstmt);
-//		}
-//	}
+	public int insertBoard(BoardVO bVO){		
+		
+		conn = template.getConnection();
+		query = "INSERT INTO TASS.BOARD VALUES(BNO_SEQ.nextval, '관리자', ?, ?, SYSDATE, NULL, NULL, 5, 0, 'N', 0, 'Y')";
+		try {
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setString(1, bVO.getTitle());
+			pstmt.setString(2, bVO.getContent());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {		
+			e.printStackTrace();
+		} finally {
+			template.close(pstmt);
+		}
+		System.out.println(result);
+		return result;
+	}
 }

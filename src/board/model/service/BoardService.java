@@ -14,10 +14,9 @@ public class BoardService {
 		return list;
 	}
 	
-//	public ArrayList<BoardVO> insertBoard(){
-//		ArrayList<BoardVO> list = dao.insertBoard();
-//		
-//		return list;
-//	}
+	public int insertBoard(BoardVO bVO){
+
+		return dao.insertBoard(bVO);
+	}
 
 }
