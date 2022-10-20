@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import board.model.service.BoardService;
 import board.model.vo.BoardVO;
 
 /**
@@ -34,9 +35,14 @@ public class insertBoard extends HttpServlet {
 		BoardVO bVO = new BoardVO();
 		bVO.setTitle(request.getParameter("title"));
 		bVO.setContent(request.getParameter("content"));
+			
+		System.out.println(bVO);
+		System.out.println("컨트롤러 : " + bVO.toString());
 		
-		request.getRequestDispatcher("WEB-INF/views/boardList.jsp").forward(request, response);
+		BoardService service = new BoardService();
+		int result = service.insertBoard(bVO);	
 		
+		request.getRequestDispatcher("WEB-INF/views/boardList.jsp").forward(request, response);	
 	}
 
 	/**

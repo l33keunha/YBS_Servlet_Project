@@ -1,7 +1,7 @@
 package board.model.DAO;
 
-import java.io.Closeable;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -16,6 +16,8 @@ public class BoardDAO {
 	String query;
 	Statement stmt = null;
 	ResultSet rset = null;
+	PreparedStatement pstmt = null;
+	int result = 0;
 	
 	public ArrayList<BoardVO> selectBoardList() {
 		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
@@ -43,5 +45,25 @@ public class BoardDAO {
 		
 		return list;
 	}
-
+	
+	public int insertBoard(BoardVO bVO){		
+		
+		conn = template.getConnection();
+		query = "INSERT INTO TASS.BOARD VALUES(BNO_SEQ.nextval, '관리자', ?, ?, SYSDATE, NULL, NULL, 5, 0, 'N', 0, 'Y')";
+		try {
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setString(1, bVO.getTitle());
+			pstmt.setString(2, bVO.getContent());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {		
+			e.printStackTrace();
+		} finally {
+			template.close(pstmt);
+		}
+		System.out.println(result);
+		return result;
+	}
 }
