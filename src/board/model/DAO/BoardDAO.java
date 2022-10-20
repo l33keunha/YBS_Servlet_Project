@@ -1,7 +1,7 @@
 package board.model.DAO;
 
-import java.io.Closeable;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -16,6 +16,7 @@ public class BoardDAO {
 	String query;
 	Statement stmt = null;
 	ResultSet rset = null;
+	PreparedStatement pstmt = null;
 	
 	public ArrayList<BoardVO> selectBoardList() {
 		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
@@ -43,5 +44,34 @@ public class BoardDAO {
 		
 		return list;
 	}
-
+	
+//	public ArrayList<BoardVO> insertBoard(){
+//		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
+//		BoardVO vo = new BoardVO();
+//		
+//		conn = template.getConnection();
+//		query = "INSERT INTO BOARD VALUES (BNO_SEQ.nextval, ?, ?, ?, SYSDATE, NULL, NULL, 5, 0, 'N', 0, 'Y')";
+//		
+//		try {
+//			pstmt = conn.prepareStatement(query);
+//			
+//			//pstmt.setInt(1, )
+//			
+//			
+//			
+//			
+//			
+//			
+//			pstmt.executeUpdate();
+//			
+//			
+//			
+//			System.out.println("--------------------INSERT 성공");
+//			
+//		} catch (SQLException e) {		
+//			e.printStackTrace();
+//		} finally {
+//			template.close(pstmt);
+//		}
+//	}
 }
