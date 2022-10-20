@@ -38,7 +38,7 @@ public class selectBoardList extends HttpServlet {
 			BoardVO vo = list.get(0);
 			
 			request.setAttribute("title", vo.getTitle());
-			request.getRequestDispatcher("WEB-INF/views/blank.jsp").forward(request, response);
+			request.getRequestDispatcher("WEB-INF/views/boardList.jsp").forward(request, response);
 		}
 	}
 
