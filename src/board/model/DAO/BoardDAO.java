@@ -61,7 +61,9 @@ public class BoardDAO {
 		} catch (SQLException e) {		
 			e.printStackTrace();
 		} finally {
+			template.commit(conn);
 			template.close(pstmt);
+			template.close(rset);
 		}
 		System.out.println(result);
 		return result;
