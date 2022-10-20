@@ -24,7 +24,7 @@
 	                <div class="top">
 	                	<input type="text" name="title" >
 	                	
-	                    <button>Cancle</button>
+	                    <button onclick="goBack()">Cancle</button>
 	                    <button type="submit" value="save">Save</button>
 	                    	                    
 	                </div>

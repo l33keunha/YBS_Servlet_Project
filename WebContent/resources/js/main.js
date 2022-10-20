@@ -23,3 +23,7 @@ function importantClick(){
     $('.mselect').removeClass('important')
   }
 }
+
+function goBack() {
+        window.history.back();
+    }
