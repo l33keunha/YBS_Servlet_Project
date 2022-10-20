@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-안녕.... 나는 능이버섯....
+
 </body>
 </html>
