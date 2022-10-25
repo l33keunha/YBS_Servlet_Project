@@ -33,11 +33,27 @@
 	                <div class="writeconWrap">	                
 	                    <div class="left">	                    
 	                        <!-- <input type="image" name="button" src="resources/img/addPic_2.png"> -->
-	                        <img id="contentImg1" width="120" height="100">
-	                        <img id="contentImg2" width="120" height="100">
-	                        <img id="contentImg3" width="120" height="100">
-	                        <img id="contentImg4" width="120" height="100">
-	                        <input type="button" class="addImages" id="addImages" value="Add file" onclick="aclick()">Add file                       
+	                        <div>
+		                        <img id="contentImg1" src="resources/img/addPic.png">
+		                        <input type="button" class="addImages1" id="addImages1" value="Add file" onclick="aclick()">
+		                        <input type="button" class="delImages1" id="delImages1" value="Delet file" onclick="aclick()">
+	                        </div>
+	                        <div>
+		                        <img id="contentImg2">
+		                        <input type="button" class="addImages2" id="addImages2" value="Add file" onclick="aclick()">
+		                        <input type="button" class="delImages2" id="delImages2" value="Delet file" onclick="aclick()">
+	                        </div>
+	                        <div>
+		                        <img id="contentImg3">
+		                        <input type="button" class="addImages3" id="addImages3" value="Add file" onclick="aclick()">
+		                        <input type="button" class="delImages3" id="delImages3" value="Delet file" onclick="aclick()">
+	                        </div>
+	                        <div>
+		                        <img id="contentImg4">
+		                        <input type="button" class="addImages4" id="addImages4" value="Add file" onclick="aclick()">
+		                        <input type="button" class="delImages4" id="delImages4" value="Delet file" onclick="aclick()">
+	                        </div>
+	                        <!-- <input type="button" class="addImages" id="addImages" value="Add file" onclick="aclick()"> -->                    
 	                    </div>
 	                    
 	                    <div class="right">
