@@ -2,17 +2,16 @@
 
 function goLocation(e){
 	var btn = $(e).attr('class');
-	
 	switch(btn){
 		case "goListBtn":
-			location.href = "selectBoardList.do";
+			window.location.href = "selectBoardList.do";
 		break;
 		case "writeBtn":
-			location.href = "goBoardWrite.do";
+			window.location.href = "goBoardWrite.do";
+		break;
+		case "cancleBtn":
+			window.location.href = "selectBoardList.do";
 		break;
 	}
 }
 
-$(document).on('click','.cancleBtn',function(){
-	location.href = "selectBoardList.do";
-});
