@@ -30,7 +30,7 @@
                     <a href="./reWrite.html">
                         <div class="con" id="con1">
                             <div class="pic">
-                                <button class="conBtn" id="btn" onclick="clickCounter()"></button>
+                                <button class="conBtn" id="btn" onclick="clickCounter(this)"></button>
                             </div>
                             <div class="title">
                                 <h1>blablablabla</h1>

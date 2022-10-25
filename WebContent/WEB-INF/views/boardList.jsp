@@ -25,7 +25,7 @@
                             <span>2022.01.01</span>
                         </div>
                            <div class="tablePic">
-                               <button class="mselect" id="mselect" onclick="importantClick()"></button>
+                               <button class="mselect" id="mselect" onclick="importantClick(this)"></button>
                            </div>
                     </div>
                 </div>
