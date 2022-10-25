@@ -24,8 +24,8 @@
 	                	<input type="text" name="title" >
 	                	
 
-	                    <button class="cancleBtn" onclick="goLocation(this)">Cancle</button>
-	                    <button class="saveBtn" onclick="goLocation(this)">Save</button>
+	                    <button type="button" class="cancleBtn" onclick="goLocation(this)">Cancle</button>
+	                    <button type="submit" class="saveBtn" >Save</button>
 	                    	                    
 
 	                </div>
