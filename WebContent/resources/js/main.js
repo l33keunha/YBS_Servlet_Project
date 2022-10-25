@@ -1,7 +1,7 @@
 let cnt = 0;
 const button = document.getElementById("btn");
-function clickCounter(e){
-	var btn = $(e).attr('class');
+function clickCounter(a){
+	var btn = $(a).attr('class');
     cnt+=1;
     if((cnt % 2) === 1){
 	$(e).parent().siblings('.conHover').addClass('run');
@@ -12,7 +12,7 @@ function clickCounter(e){
     }
 }
 
-const btn = document.getElementById("mselect");
+var btn = document.getElementById("mselect");
 function importantClick(b){
 	var btn = $(b).attr('class');
   cnt+=1;
@@ -23,6 +23,3 @@ function importantClick(b){
   }
 }
 
-function goBack() {
-        window.history.back();
-    }

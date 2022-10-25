@@ -9,6 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
 import board.model.service.BoardService;
 import board.model.vo.BoardVO;
 
@@ -37,20 +42,28 @@ public class insertBoard extends HttpServlet {
 		bVO.setTitle(request.getParameter("title"));
 		bVO.setContent(request.getParameter("content"));
 			
-		System.out.println(bVO);
-		System.out.println("컨트롤러 : " + bVO.toString());
+//		System.out.println(bVO);
+//		System.out.println("컨트롤러 : " + bVO.toString());
 		
-		BoardService service = new BoardService();
-		int result = service.insertBoard(bVO);	
+//		BoardService service = new BoardService();
+//		int result = service.insertBoard(bVO);	
 		
-		String root = request.getSession().getServletContext().getRealPath("/");
-		String savePath = root + "resources/img/contentImg";
 		
-		File f = new File(savePath);
-		
-		if(!f.exists()) {
-			f.mkdirs();
-		}
+		if(ServletFileUpload.isMultipartContent(request)) {
+			int  maxSize = 1024*1024*10; // 10Mbyte로 전송파일 용량 제한
+			
+			String root = request.getSession().getServletContext().getRealPath("/");
+			String savePath = root + "resources/img/contentImg";
+			
+			File f = new File(savePath);
+			
+			if(!f.exists()) {
+				f.mkdirs();
+			}
+			
+			MultipartRequest multi = new MultipartRequest(request, savePath, maxSize,"euc-kr",new DefaultFileRenamePolicy());
+			
+		} 
 		
 		request.getRequestDispatcher("WEB-INF/views/boardList.jsp").forward(request, response);	
 	}
