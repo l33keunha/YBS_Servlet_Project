@@ -1,5 +1,6 @@
 package board.controller;
 
+import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -42,6 +43,15 @@ public class insertBoard extends HttpServlet {
 		BoardService service = new BoardService();
 		int result = service.insertBoard(bVO);	
 		
+		String root = request.getSession().getServletContext().getRealPath("/");
+		String savePath = root + "resources/img/contentImg";
+		
+		File f = new File(savePath);
+		
+		if(!f.exists()) {
+			f.mkdirs();
+		}
+		
 		request.getRequestDispatcher("WEB-INF/views/boardList.jsp").forward(request, response);	
 	}
 
@@ -51,5 +61,7 @@ public class insertBoard extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
+	
+	
 
 }
