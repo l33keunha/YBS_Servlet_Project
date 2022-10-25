@@ -12,3 +12,7 @@ function goLocation(e){
 		break;
 	}
 }
+
+$(document).on('click','.cancleBtn',function(){
+	location.href = "selectBoardList.do";
+});
