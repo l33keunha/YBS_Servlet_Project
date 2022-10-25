@@ -1,5 +1,5 @@
-var cnt = 0;
-var button = document.getElementById("btn");
+let cnt = 0;
+const button = document.getElementById("btn");
 function clickCounter(a){
 	var btn = $(a).attr('class');
     cnt+=1;

@@ -18,7 +18,7 @@
                 <h1>INTERNI AND DECO</h1>
             </div>
                        
-			<form action="selectBoardList.do" encType="UTF-8"  method="post" encType="multipart/form-data">			
+			<form action="insertBoard.do" encType="UTF-8"  method="post" encType="multipart/form-data">			
 	            <div class="writeWrap">	            
 	                <div class="top">
 	                	<input type="text" name="title" >
@@ -37,7 +37,7 @@
 	                        <img id="contentImg2" width="120" height="100">
 	                        <img id="contentImg3" width="120" height="100">
 	                        <img id="contentImg4" width="120" height="100">
-	                        <input type="button" class="addImages" value="Add file">Add file                       
+	                        <input type="button" class="addImages" id="addImages" value="Add file" onclick="aclick()">Add file                       
 	                    </div>
 	                    
 	                    <div class="right">
