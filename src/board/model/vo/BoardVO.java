@@ -1,13 +1,15 @@
 package board.model.vo;
 
+import java.sql.Date;
+
 public class BoardVO {
 	private int bNo;
 	private String name;
 	private String title;
 	private String content;
-	private int writtenDate;
-	private int updateDate;
-	private int deleteDate;
+	private Date writtenDate;
+	private Date updateDate;
+	private Date deleteDate;
 	private int cateNo;
 	private String mainStatus;
 	private int likeCnt;
@@ -15,7 +17,7 @@ public class BoardVO {
 	
 	public BoardVO() {}
 
-	public BoardVO(int bNo, String name, String title, String content, int writtenDate, int updateDate, int deleteDate,
+	public BoardVO(int bNo, String name, String title, String content, Date writtenDate, Date updateDate, Date deleteDate,
 			int cateNo, String mainStatus, int likeCnt, String status) {
 		super();
 		this.bNo = bNo;
@@ -63,27 +65,27 @@ public class BoardVO {
 		this.content = content;
 	}
 
-	public int getWrittenDate() {
+	public Date getWrittenDate() {
 		return writtenDate;
 	}
 
-	public void setWrittenDate(int writtenDate) {
+	public void setWrittenDate(Date writtenDate) {
 		this.writtenDate = writtenDate;
 	}
 
-	public int getUpdateDate() {
+	public Date getUpdateDate() {
 		return updateDate;
 	}
 
-	public void setUpdateDate(int updateDate) {
+	public void setUpdateDate(Date updateDate) {
 		this.updateDate = updateDate;
 	}
 
-	public int getDeleteDate() {
+	public Date getDeleteDate() {
 		return deleteDate;
 	}
 
-	public void setDeleteDate(int deleteDate) {
+	public void setDeleteDate(Date deleteDate) {
 		this.deleteDate = deleteDate;
 	}
 
