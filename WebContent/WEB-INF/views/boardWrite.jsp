@@ -25,7 +25,7 @@
 	                	
 
 	                    <button class="cancleBtn" onclick="goLocation(this)">Cancle</button>
-	                    <button type="submit" value="save">Save</button>
+	                    <button class="saveBtn" onclick="goLocation(this)">Save</button>
 	                    	                    
 
 	                </div>

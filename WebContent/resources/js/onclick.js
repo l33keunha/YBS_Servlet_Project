@@ -10,9 +10,12 @@ function goLocation(e){
 		case "writeBtn":
 			location.href = "goBoardWrite.do";
 		break;
+		case "saveBtn":
+			location.href = "insertBoard.do";
+		break;
+		case "cancleBtn":
+			location.href = "selectBoardList.do";
+		break;
 	}
 }
 
-$(document).on('click','.cancleBtn',function(){
-	location.href = "selectBoardList.do";
-});
