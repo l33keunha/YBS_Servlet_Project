@@ -20,7 +20,8 @@ public class BoardService {
 		int result = dao.insertBoard(bVO); 
 		
 		if(result > 0) {
-			result = dao.insertAttachment(fileList);
+			int bNo = dao.selectBno();
+			result = dao.insertAttachment(fileList, bNo);
 			if(result > 0) {
 				return result; // 1
 			} else { // 사진게시판 insert 실패 : 0
@@ -31,4 +32,5 @@ public class BoardService {
 		}
 	}
 
+	
 }
