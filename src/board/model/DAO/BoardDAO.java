@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import board.model.vo.Attachment;
 import board.model.vo.BoardVO;
 import util.JDBCTemplate;
 
@@ -63,9 +64,33 @@ public class BoardDAO {
 		} finally {
 			template.commit(conn);
 			template.close(pstmt);
-			template.close(rset);
 		}
-		System.out.println(result);
 		return result;
+	}
+	
+	public int insertAttachment(ArrayList<Attachment> fileList){
+		
+		conn = template.getConnection();
+		query = "INSERT INTO TASS.BOARD_IMG VALUES(BNO_SEQ.nextval, ?, ?, ?, ?, 'N')";
+		int cnt = 1;
+			
+			try {
+				for(int i=0; i<fileList.size(); i++) {
+					Attachment a = fileList.get(i);
+					pstmt = conn.prepareStatement(query);
+					pstmt.setInt(1, cnt++);
+					pstmt.setString(2, a.getOriginname());
+					pstmt.setString(3, a.getRename());
+					pstmt.setString(4, a.getImgpath());
+					
+					result = pstmt.executeUpdate();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				template.commit(conn);
+				template.close(pstmt);
+			}
+			return result;
 	}
 }
