@@ -19,6 +19,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import board.model.service.BoardService;
 import board.model.vo.Attachment;
 import board.model.vo.BoardVO;
+import util.MyFileRenamePolicy;
 
 /**
  * Servlet implementation class insertBoard
@@ -52,10 +53,8 @@ public class insertBoard extends HttpServlet {
 //		BoardService service = new BoardService();
 //		int result = service.insertBoard(bVO);	
 		
-		
 		if(ServletFileUpload.isMultipartContent(request)) {
 			int maxSize = 1024*1024*10; // 10Mbyte로 전송파일 용량 제한
-			
 			String root = request.getSession().getServletContext().getRealPath("/");
 			String savePath = root + "resources/img/contentImg";
 			
@@ -65,8 +64,8 @@ public class insertBoard extends HttpServlet {
 				f.mkdirs();
 			}
 			
-			MultipartRequest multi = new MultipartRequest(request, savePath, maxSize,"euc-kr",new DefaultFileRenamePolicy());
-			
+			MultipartRequest multi = new MultipartRequest(request, savePath, maxSize,"utf-8",new MyFileRenamePolicy());
+			System.out.println(multi.toString());
 			ArrayList<String> saveFiles = new ArrayList<String>(); //바뀐 파일명 저장
 			ArrayList<String> originFiles = new ArrayList<String>(); //원래 파일명 저장
 			
@@ -80,7 +79,7 @@ public class insertBoard extends HttpServlet {
 					originFiles.add(multi.getOriginalFileName(name)); //원본 파일명 추가
 				}
 			}
-			
+
 			//서비스에 보내기
 			String title = multi.getParameter("title");
 			String content = multi.getParameter("content");
@@ -89,7 +88,7 @@ public class insertBoard extends HttpServlet {
 			bVO.setContent(content);
 			
 			ArrayList<Attachment> fileList = new ArrayList<Attachment>();
-			for(int i=originFiles.size(); i>=0; i--) { //사진 거꾸로 저장돼서 다시 거꾸로
+			for(int i=originFiles.size()-1; i>=0; i--) { //사진 거꾸로 저장돼서 다시 거꾸로
 				Attachment a = new Attachment();
 				a.setImgpath(savePath);
 				a.setOriginname(originFiles.get(i));
@@ -99,18 +98,13 @@ public class insertBoard extends HttpServlet {
 			}
 			
 			int result = new BoardService().insertBoard(bVO, fileList);
+			
 			if(result > 0) { //성공
-				response.sendRedirect("boardList.jsp");
-			} else {
-				for(int i=0; i<saveFiles.size(); i++) {
-					File fail = new File(savePath + saveFiles.get(i));
-					fail.delete();
-				}
-				
-				request.setAttribute("msg", "이미지 등록에 실패하였습니다.");			
-			}
-		}		
-		request.getRequestDispatcher("WEB-INF/views/boardList.jsp").forward(request, response);
+				response.sendRedirect("selectBoardList.do");
+			} 	
+		
+			System.out.println(result);
+		}
 	}
 
 	/**
