@@ -70,18 +70,26 @@ function delclick(e){
 		case "delImages1":
 			$("#contentImg1").attr("src","resources/img/addPic_2.png");
 			$("#delImages1").css("display","none");
+			$(e).siblings(".thumbIcon").css("display", "none");
+			$(e).siblings("input:radio[name=thumbnail]:checked")[0].checked = false;
 		break;
 		case "delImages2":
 			$("#contentImg2").attr("src","resources/img/addPic_2.png");
 			$("#delImages2").css("display","none");
+			$(e).siblings(".thumbIcon").css("display", "none");
+			$(e).siblings("input:radio[name=thumbnail]:checked")[0].checked = false;
 		break;
 		case "delImages3":
 			$("#contentImg3").attr("src","resources/img/addPic_2.png");
 			$("#delImages3").css("display","none");
+			$(e).siblings(".thumbIcon").css("display", "none");
+			$(e).siblings("input:radio[name=thumbnail]:checked")[0].checked = false;
 		break;
 		case "delImages4":
 			$("#contentImg4").attr("src","resources/img/addPic_2.png");
 			$("#delImages4").css("display","none");
+			$(e).siblings(".thumbIcon").css("display", "none");
+			$(e).siblings("input:radio[name=thumbnail]:checked")[0].checked = false;
 		break;
 	}
 }
@@ -151,14 +159,14 @@ function switchValue(z){
 
 }
 
-function save(){
-	if(vali($("input[name=title]").val()) && vali($("textarea[name=content]").val())){
-                    alert("제목과 내용을 입력해주세요");
-                } else if(vali($("input[name=title]").val())){
-                    alert("제목을 입력해주세요");
-                } else if(vali($("textarea[name=content]").val())){
-                    alert("내용을 입력해주세요");
-                } else{
-					alert("내용과 제목이 입력되었습니다.");
-}
-}
+/* 빈칸 알람 띄우기*/
+$( document ).ready(function() {
+    $('.saveBtn').click(function() {
+		if($("#title").val().length==0 && $("#comment").val().length!=0)
+			{ alert("제목을 입력하세요."); $("#title").focus(); return false; }
+		else if($("#title").val().length!=0 && $("#comment").val().length==0)
+			{ alert("내용을 입력하세요."); $("#comment").focus(); return false; }
+		else if($("#comment").val().length==0 && $("#title").val().length==0)
+			{ alert("제목과 내용을 입력하세요."); $("#title").focus(); return false; }
+	})
+});
