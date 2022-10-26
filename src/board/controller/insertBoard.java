@@ -53,11 +53,14 @@ public class insertBoard extends HttpServlet {
 //		int result = service.insertBoard(bVO);	
 		
 		
+		System.out.println("start");
 		if(ServletFileUpload.isMultipartContent(request)) {
 			int maxSize = 1024*1024*10; // 10Mbyte로 전송파일 용량 제한
 			
 			String root = request.getSession().getServletContext().getRealPath("/");
 			String savePath = root + "resources/img/contentImg";
+			
+			System.out.println(savePath);
 			
 			File f = new File(savePath);
 			
@@ -65,7 +68,7 @@ public class insertBoard extends HttpServlet {
 				f.mkdirs();
 			}
 			
-			MultipartRequest multi = new MultipartRequest(request, savePath, maxSize,"euc-kr",new DefaultFileRenamePolicy());
+			MultipartRequest multi = new MultipartRequest(request, savePath, maxSize,"euc-kr");
 			
 			ArrayList<String> saveFiles = new ArrayList<String>(); //바뀐 파일명 저장
 			ArrayList<String> originFiles = new ArrayList<String>(); //원래 파일명 저장

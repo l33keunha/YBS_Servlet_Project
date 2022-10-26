@@ -18,7 +18,7 @@
                 <h1>INTERNI AND DECO</h1>
             </div>
                        
-			<form action="insertBoard.do" encType="UTF-8"  method="post" encType="multipart/form-data">			
+			<form action="insertBoard.do" method="post" enctype="multipart/form-data">			
 	            <div class="writeWrap">	            
 	                <div class="top">
 	                	<input type="text" name="title" >
