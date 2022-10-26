@@ -4,11 +4,11 @@ function clickCounter(a){
 	var btn = $(a).attr('class');
     cnt+=1;
     if((cnt % 2) === 1){
-	$(e).parent().siblings('.conHover').addClass('run');
-     $(e).parent().siblings('.conHover').children().css("display","block");
+	$(a).parent().siblings('.conHover').addClass('run');
+     $(a).parent().siblings('.conHover').children().css("display","block");
     } else{
-      $(e).parent().siblings('.conHover').removeClass("run");
-      $(e).parent().siblings('.conHover').children().css("display","none");
+      $(a).parent().siblings('.conHover').removeClass("run");
+      $(a).parent().siblings('.conHover').children().css("display","none");
     }
 }
 

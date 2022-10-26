@@ -64,31 +64,26 @@ public class BoardDAO {
 		} finally {
 			template.commit(conn);
 			template.close(pstmt);
-			template.close(rset);
 		}
-		System.out.println(result);
 		return result;
 	}
 	
 	public int insertAttachment(ArrayList<Attachment> fileList){
 		
 		conn = template.getConnection();
-		query = "INSERT INTO TASS.BOARD_IMG VALUES(BNO_SEQ.nextval, ?, ?, ?, ?, ?)";
+		query = "INSERT INTO TASS.BOARD_IMG VALUES(BNO_SEQ.nextval, ?, ?, ?, ?, 'N')";
+		int cnt = 1;
 			
 			try {
 				for(int i=0; i<fileList.size(); i++) {
 					Attachment a = fileList.get(i);
-					int count = 0;
 					pstmt = conn.prepareStatement(query);
-					for(int j=0; j<4; j++) {
-						pstmt.setInt(1, a.getImgNo()+count);
-						count++;
-					}
+					pstmt.setInt(1, cnt++);
 					pstmt.setString(2, a.getOriginname());
 					pstmt.setString(3, a.getRename());
 					pstmt.setString(4, a.getImgpath());
 					
-					result += pstmt.executeUpdate();
+					result = pstmt.executeUpdate();
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();

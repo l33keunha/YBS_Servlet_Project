@@ -47,7 +47,7 @@
     float: left;
     padding-left: 20px;
 }
-.top > button {
+.saveBtn {
     width: 80px;
     height: 35px;
     background: #52A1B1;
@@ -65,13 +65,54 @@
     cursor: pointer;
 }
 
-.top > button:active{box-shadow: 0px 0px 4px rgb(0 0 0 / 25%);}
-.top > button:hover{
+.saveBtn:active{box-shadow: 0px 0px 4px rgb(0 0 0 / 25%);}
+.saveBtn:hover{
 	    background: #fff;
     color: #52A1B1;
 }
-.top :nth-child(2):hover{color: #b15252;}
-.top :nth-child(2){background: #b15252;}
+.cancleBtn:active{box-shadow: 0px 0px 4px rgb(0 0 0 / 25%);}
+.cancleBtn:hover{background: #fff; color: #b15252;}
+.cancleBtn{
+	background: #b15252;
+	width: 80px;
+    height: 35px;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 12px;
+    font-family: 'Caladea';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 28px;
+    color: #FFFFFF;
+    border: none;
+    float: right;
+    margin-right: 15px;
+    cursor: pointer;
+}
+input#thumb {
+    width: 80px;
+    height: 35px;
+    background: #52A1B1;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 12px;
+    font-family: 'Caladea';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 28px;
+    color: #FFFFFF;
+    border: none;
+    float: right;
+    margin-right: 15px;
+    cursor: pointer;
+    padding-left: 0;
+}
+
+input#thumb:active{box-shadow: 0px 0px 4px rgb(0 0 0 / 25%);}
+input#thumb:hover{
+	    background: #fff;
+    color: #52A1B1;
+}
 .writeconWrap {
     width: 1218px;
     display: flex;
@@ -80,19 +121,20 @@
 .left {
     width: 842px;
     height: 626px;
-    background: #F7F7F7 url(../img/addPic.png) no-repeat 245px 158px;
-    background-size: 355px;
+    background: #F7F7F7;
     margin: 0;
+        display: flex;
+    flex-wrap: wrap;
 }
 .right {
     margin: 0;
     width: 376px;
-    height: 623px;
+    height: 625px;
     border: 1.5px solid #D0D0D0;
 }
 textarea#comment {
     width: 97%;
-    height: 99%;
+    height: 99.6%;
     font-family: 'Baloo Bhaina 2','Amethysta';
     font-style: normal;
     font-weight: 400;
@@ -112,16 +154,9 @@ textarea::placeholder{
     line-height: 40px;
     color: #A2A2A2;
 }
-input[type="image"] {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    top: 0;
-    float: left;
-    display: none;
-}
-.left > button{
-    width: 203px;
+
+.left > div :nth-child(5){
+    width: 140px;
     height: 41px;
     background: #52A1B1;
     box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
@@ -134,7 +169,75 @@ input[type="image"] {
     text-align: center;
     color: #FFFFFF;
     border: none;
-    position: absolute;
-    top: 719px;
-    left: 660.5px;
+    position: relative;
+    top: -110px;
+    left: 145px;
+    cursor: pointer;
 }
+.left > div :nth-child(5):hover{
+	    background: #fff;
+    	color: #52A1B1;
+}
+.left > div :nth-child(5):active{box-shadow: 0px 0px 4px rgb(0 0 0 / 25%);}
+.left > div{
+	width: 50%;
+    height: 50%;
+}
+img {
+    width: 100%;
+    height: 100%;
+    border:1px solid #D0D0D0;
+}
+.left > div :last-child {
+    width: 140px;
+    height: 41px;
+    background: #b15252;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 17.5px;
+    font-family: 'Caladea';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    color: #FFFFFF;
+    border: none;
+    position: relative;
+    top: -63px;
+    left: 1px;
+    cursor: pointer;
+}
+.left > div :last-child:hover{background: #fff; color: #b15252;}
+.left > div :last-child:active{box-shadow: 0px 0px 4px rgb(0 0 0 / 25%);}
+
+.thumbIcon {
+    width: 30px;
+    height: 32px;
+    background: url(../img/thumb.png);
+    background-size: cover;
+    position: absolute;
+    display:none;
+}
+
+input[type="radio"]{
+        display: none;
+      }
+input[type="radio"] + label{
+        display: none;
+    width: 421px;
+    height: 313px;
+    border: 0px solid #707070;
+    position: absolute;
+    z-index: 1000;
+    background: #0000008c;
+    float: right;
+      }
+input[name="thumbnail"]:checked + label{
+    content: '';
+    width: 421px;
+    height: 313px;
+   background: #00000000;
+    position: absolute;
+    left: 0;
+    top: 0;
+      }
