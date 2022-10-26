@@ -21,11 +21,11 @@
 			<form action="insertBoard.do" method="post" enctype="multipart/form-data">			
 	            <div class="writeWrap">	            
 	                <div class="top">
-	                	<input type="text" name="title" >
+	                	<input type="text" name="title" id="title">
 	                	
 						<input type="button" class="thumb" id="thumb" value="Thumb" onclick="switchValue(this)">
 	                    <button type="button" class="cancleBtn" onclick="goLocation(this)">Cancle</button>
-	                    <button type="submit" class="saveBtn" onclick="save()">Save</button>
+	                    <button type="submit" class="saveBtn">Save</button>
 	                    	                   
 
                    </div>
