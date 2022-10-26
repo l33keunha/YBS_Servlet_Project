@@ -103,6 +103,7 @@ function thumbClick(e){
 
 function switchValue(z){
 	var btn = $(z).attr('value');
+	var inpt = $("input[name=thumbnail]:checked").attr('value');
 	switch(btn){
 		case 'Thumb':
 			if($("img").attr("src") === "resources/img/addPic_2.png"){
@@ -115,9 +116,49 @@ function switchValue(z){
 		case 'Confirm':
 			$("label").css("display", "none");
 			$("#thumb").attr('value','Thumb');
+			switch(inpt){
+				case 'thumb1':
+					$("input[value=thumb1]").siblings(".thumbIcon").css("display", "block");
+					$("input[value=thumb2]").siblings(".thumbIcon").css("display", "none");
+					$("input[value=thumb3]").siblings(".thumbIcon").css("display", "none");
+					$("input[value=thumb4]").siblings(".thumbIcon").css("display", "none");
+				break;
+				case 'thumb2':
+					$("input[value=thumb2]").siblings(".thumbIcon").css("display", "block");
+					$("input[value=thumb1]").siblings(".thumbIcon").css("display", "none");
+					$("input[value=thumb3]").siblings(".thumbIcon").css("display", "none");
+					$("input[value=thumb4]").siblings(".thumbIcon").css("display", "none");
+				break;
+				case 'thumb3':
+					$("input[value=thumb3]").siblings(".thumbIcon").css("display", "block");
+					$("input[value=thumb1]").siblings(".thumbIcon").css("display", "none");
+					$("input[value=thumb2]").siblings(".thumbIcon").css("display", "none");
+					$("input[value=thumb4]").siblings(".thumbIcon").css("display", "none");
+				break;
+				case 'thumb4':
+					$("input[value=thumb4]").siblings(".thumbIcon").css("display", "block");
+					$("input[value=thumb1]").siblings(".thumbIcon").css("display", "none");
+					$("input[value=thumb2]").siblings(".thumbIcon").css("display", "none");
+					$("input[value=thumb3]").siblings(".thumbIcon").css("display", "none");
+				break;
+				
+			}
+			
 		break;
 	}
 	
 	
 
+}
+
+function save(){
+	if(vali($("input[name=title]").val()) && vali($("textarea[name=content]").val())){
+                    alert("제목과 내용을 입력해주세요");
+                } else if(vali($("input[name=title]").val())){
+                    alert("제목을 입력해주세요");
+                } else if(vali($("textarea[name=content]").val())){
+                    alert("내용을 입력해주세요");
+                } else{
+					alert("내용과 제목이 입력되었습니다.");
+}
 }

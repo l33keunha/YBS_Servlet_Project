@@ -17,16 +17,16 @@
             <div class="mainHeader">
                 <h1>INTERNI AND DECO</h1>
             </div>
-                       
-         <form action="insertBoard.do"  method="post" enctype="multipart/form-data">         
-               <div class="writeWrap">               
-                   <div class="top">
-                      <input type="text" name="title" >
-                      
-                  <input type="button" class="thumb" id="thumb" value="Thumb" onclick="switchValue(this)">
-                       <button type="button" class="cancleBtn" onclick="goLocation(this)">Cancle</button>
-                       <button type="submit" class="saveBtn" >Save</button>
-                                              
+
+			<form action="insertBoard.do" method="post" enctype="multipart/form-data">			
+	            <div class="writeWrap">	            
+	                <div class="top">
+	                	<input type="text" name="title" >
+	                	
+						<input type="button" class="thumb" id="thumb" value="Thumb" onclick="switchValue(this)">
+	                    <button type="button" class="cancleBtn" onclick="goLocation(this)">Cancle</button>
+	                    <button type="submit" class="saveBtn" onclick="save()">Save</button>
+	                    	                   
 
                    </div>
                    
