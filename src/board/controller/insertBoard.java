@@ -47,6 +47,8 @@ public class insertBoard extends HttpServlet {
 			String root = request.getSession().getServletContext().getRealPath("/");
 			String savePath = root + "resources/img/contentImg";
 			
+			
+			
 			File f = new File(savePath);
 			
 			if(!f.exists()) {
