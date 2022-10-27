@@ -30,7 +30,7 @@ button.writeBtn {
     float: right;
     width: 30px;
     height: 30px;
-    background: url(../img/pen.png) no-repeat;
+    background: url(../img/icons/pen.png) no-repeat;
     background-size: cover;
     border: none;
     cursor: pointer;
@@ -55,7 +55,7 @@ button.writeBtn {
     width: 268px;
     height: 157px;
     border-radius: 15px;
-    background: url(../img/pic1.jpg) no-repeat 0px -44px;
+    background: url(../img/icons/pic1.jpg) no-repeat 0px -44px;
     background-size: cover;
 }
 .tablehead :first-child {
@@ -81,7 +81,7 @@ button.writeBtn {
 button.mselect {
     width: 30px;
     height: 30px;
-    background: url(../img/important.png) no-repeat;
+    background: url(../img/icons/important.png) no-repeat;
     background-size: cover;
     float: right;
     border-radius: 100px;
@@ -91,6 +91,6 @@ button.mselect {
 }
 
 button.mselect.important{
-    background: url(../img/important_2.png) no-repeat;
+    background: url(../img/icons/important_2.png) no-repeat;
     background-size: cover;
 }
