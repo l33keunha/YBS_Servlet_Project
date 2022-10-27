@@ -11,10 +11,20 @@
     float: left;
 }
 .header{
+	    font-family: 'Antic Didone';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    background: radial-gradient(97.49% 92.29% at 2.51% 49.41%, #4CA3AF 0%, rgba(107, 124, 182, 0.818958) 47.06%, rgba(79, 35, 100, 0.59) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
     font-size: 40px;
     width: 403px;
     text-align: left;
     float: left;
+        border: none;
 }
 button.writeBtn {
     float: right;
@@ -76,7 +86,7 @@ button.mselect {
     float: right;
     border-radius: 100px;
     border: none;
-    margin-right: -49px;
+    margin-right:-23px;
     margin-top: 4px;
 }
 
