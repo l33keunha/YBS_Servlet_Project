@@ -10,6 +10,8 @@ $(function(){
 	$("#delImages2").hide();
 	$("#delImages3").hide();
 	$("#delImages4").hide();
+	
+	
 	});
 	
 /*add file 버튼 클릭할때*/	
@@ -94,27 +96,26 @@ function delclick(e){
 	}
 }
 
-
+// 라디오 lavel 썸 체크
 function thumbClick(e){
 	var btn = $(e).attr('for');
 	if($("input[name=thumbnail]:checked")){
-			 $("#thumb").attr('value','Confirm')
+		$("#thumb").attr('value','Confirm')
 	} else(
 		$("#thumb").attr('value','Thumb')
 	)
 	
-	if($(e).siblings("img").attr("src")==="resources/img/addPic_2.png"){
+	if($(e).siblings("input[type=image]").attr("src")==="resources/img/addPic_2.png"){
 			 $(e).siblings("input[name=thumbnail]").attr('onclick','return(false);')
 	}
-	
 }
-
+//thum 버큰 클릭 이벤트
 function switchValue(z){
 	var btn = $(z).attr('value');
 	var inpt = $("input[name=thumbnail]:checked").attr('value');
 	switch(btn){
 		case 'Thumb':
-			if($("img").attr("src") === "resources/img/addPic_2.png"){
+			if($("input[type=image]").attr("src") === "resources/img/addPic_2.png"){
 		$(z).disabled = true;
 	} else(
 			$("label").css("display", "block"),
@@ -130,24 +131,44 @@ function switchValue(z){
 					$("input[value=thumb2]").siblings(".thumbIcon").css("display", "none");
 					$("input[value=thumb3]").siblings(".thumbIcon").css("display", "none");
 					$("input[value=thumb4]").siblings(".thumbIcon").css("display", "none");
+					
+					$("input[value=thumb1]").siblings("input[type=image]").attr('name','test');
+					$("input[value=thumb2]").siblings("input[type=image]").removeAttr('name');
+					$("input[value=thumb3]").siblings("input[type=image]").removeAttr('name');
+					$("input[value=thumb4]").siblings("input[type=image]").removeAttr('name');
 				break;
 				case 'thumb2':
 					$("input[value=thumb2]").siblings(".thumbIcon").css("display", "block");
 					$("input[value=thumb1]").siblings(".thumbIcon").css("display", "none");
 					$("input[value=thumb3]").siblings(".thumbIcon").css("display", "none");
 					$("input[value=thumb4]").siblings(".thumbIcon").css("display", "none");
+					
+					$("input[value=thumb2]").siblings("input[type=image]").attr('name','test');
+					$("input[value=thumb1]").siblings("input[type=image]").removeAttr('name');
+					$("input[value=thumb3]").siblings("input[type=image]").removeAttr('name');
+					$("input[value=thumb4]").siblings("input[type=image]").removeAttr('name');
 				break;
 				case 'thumb3':
 					$("input[value=thumb3]").siblings(".thumbIcon").css("display", "block");
 					$("input[value=thumb1]").siblings(".thumbIcon").css("display", "none");
 					$("input[value=thumb2]").siblings(".thumbIcon").css("display", "none");
 					$("input[value=thumb4]").siblings(".thumbIcon").css("display", "none");
+					
+					$("input[value=thumb3]").siblings("input[type=image]").attr('name','test');
+					$("input[value=thumb1]").siblings("input[type=image]").removeAttr('name');
+					$("input[value=thumb2]").siblings("input[type=image]").removeAttr('name');
+					$("input[value=thumb4]").siblings("input[type=image]").removeAttr('name');
 				break;
 				case 'thumb4':
 					$("input[value=thumb4]").siblings(".thumbIcon").css("display", "block");
 					$("input[value=thumb1]").siblings(".thumbIcon").css("display", "none");
 					$("input[value=thumb2]").siblings(".thumbIcon").css("display", "none");
 					$("input[value=thumb3]").siblings(".thumbIcon").css("display", "none");
+					
+					$("input[value=thumb4]").siblings("input[type=image]").attr('name','test');
+					$("input[value=thumb1]").siblings("input[type=image]").removeAttr('name');
+					$("input[value=thumb2]").siblings("input[type=image]").removeAttr('name');
+					$("input[value=thumb3]").siblings("input[type=image]").removeAttr('name');
 				break;
 				
 			}
