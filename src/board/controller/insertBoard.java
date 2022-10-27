@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
 import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import board.model.service.BoardService;
 import board.model.vo.Attachment;
@@ -43,16 +42,6 @@ public class insertBoard extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		
-		BoardVO bVO = new BoardVO();
-		bVO.setTitle(request.getParameter("title"));
-		bVO.setContent(request.getParameter("content"));
-			
-//		System.out.println(bVO);
-//		System.out.println("컨트롤러 : " + bVO.toString());
-		
-//		BoardService service = new BoardService();
-//		int result = service.insertBoard(bVO);	
-		
 		if(ServletFileUpload.isMultipartContent(request)) {
 			int maxSize = 1024*1024*10; // 10Mbyte로 전송파일 용량 제한
 			String root = request.getSession().getServletContext().getRealPath("/");
@@ -65,7 +54,6 @@ public class insertBoard extends HttpServlet {
 			}
 			
 			MultipartRequest multi = new MultipartRequest(request, savePath, maxSize,"utf-8",new MyFileRenamePolicy());
-			System.out.println(multi.toString());
 			ArrayList<String> saveFiles = new ArrayList<String>(); //바뀐 파일명 저장
 			ArrayList<String> originFiles = new ArrayList<String>(); //원래 파일명 저장
 			
@@ -84,6 +72,7 @@ public class insertBoard extends HttpServlet {
 			String title = multi.getParameter("title");
 			String content = multi.getParameter("content");
 			
+			BoardVO bVO = new BoardVO();
 			bVO.setTitle(title);
 			bVO.setContent(content);
 			
@@ -103,7 +92,6 @@ public class insertBoard extends HttpServlet {
 				response.sendRedirect("selectBoardList.do");
 			} 	
 		
-			System.out.println(result);
 		}
 	}
 

@@ -68,20 +68,21 @@ public class BoardDAO {
 		return result;
 	}
 	
-	public int insertAttachment(ArrayList<Attachment> fileList){
+	public int insertAttachment(ArrayList<Attachment> fileList, int bNo){
 		
 		conn = template.getConnection();
-		query = "INSERT INTO TASS.BOARD_IMG VALUES(BNO_SEQ.nextval, ?, ?, ?, ?, 'N')";
+		query = "INSERT INTO TASS.BOARD_IMG VALUES(?, ?, ?, ?, ?, 'N')";
 		int cnt = 1;
 			
 			try {
 				for(int i=0; i<fileList.size(); i++) {
 					Attachment a = fileList.get(i);
 					pstmt = conn.prepareStatement(query);
-					pstmt.setInt(1, cnt++);
-					pstmt.setString(2, a.getOriginname());
-					pstmt.setString(3, a.getRename());
-					pstmt.setString(4, a.getImgpath());
+					pstmt.setInt(1, bNo);
+					pstmt.setInt(2, cnt++);
+					pstmt.setString(3, a.getOriginname());
+					pstmt.setString(4, a.getRename());
+					pstmt.setString(5, a.getImgpath());
 					
 					result = pstmt.executeUpdate();
 				}
@@ -92,5 +93,27 @@ public class BoardDAO {
 				template.close(pstmt);
 			}
 			return result;
+	}
+
+	public int selectBno() {
+		conn = template.getConnection();
+		query = "SELECT BNO FROM BOARD WHERE ROWNUM=1 ORDER BY BNO DESC";
+		
+		try {
+			stmt = conn.createStatement();
+			//파라미터 받을게 없을때, 쿼리 select만 하면 executeQuery
+			rset = stmt.executeQuery(query);
+			while(rset.next()) {
+				result = rset.getInt("bNo");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			template.commit(conn);
+			template.close(stmt);
+		}
+		
+		return result;		
 	}
 }
