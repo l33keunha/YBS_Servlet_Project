@@ -97,19 +97,23 @@ public class BoardDAO {
 
 	public int selectBno() {
 		conn = template.getConnection();
-		query = "SELECT BNO FROM BORAD WHERE ROWNUM=1 ORDER BY DESC";
+		query = "SELECT BNO FROM BOARD WHERE ROWNUM=1 ORDER BY BNO DESC";
 		
 		try {
-			pstmt = conn.prepareStatement(query);
-
-			result = pstmt.executeUpdate();
+			stmt = conn.createStatement();
+			//파라미터 받을게 없을때, 쿼리 select만 하면 executeQuery
+			rset = stmt.executeQuery(query);
+			while(rset.next()) {
+				result = rset.getInt("bNo");
+			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			template.commit(conn);
-			template.close(pstmt);
+			template.close(stmt);
 		}
-	
+		
 		return result;		
 	}
 }

@@ -54,7 +54,6 @@ public class insertBoard extends HttpServlet {
 			}
 			
 			MultipartRequest multi = new MultipartRequest(request, savePath, maxSize,"utf-8",new MyFileRenamePolicy());
-			System.out.println(multi.toString());
 			ArrayList<String> saveFiles = new ArrayList<String>(); //바뀐 파일명 저장
 			ArrayList<String> originFiles = new ArrayList<String>(); //원래 파일명 저장
 			
@@ -93,7 +92,6 @@ public class insertBoard extends HttpServlet {
 				response.sendRedirect("selectBoardList.do");
 			} 	
 		
-			System.out.println(result);
 		}
 	}
 
