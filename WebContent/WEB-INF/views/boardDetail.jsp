@@ -26,7 +26,7 @@
                 </div>
                 <div class="writeconWrap">
                     <div class="left">
-                        <input  type="image" name="button" src="resources/img/pic1.jpg">
+                        <input  type="image" name="button" src="resources/img/icons/pic1.jpg">
                     </div>
                     <div class="right">
                         <textarea name="text" id="comment" placeholder="문구입력...">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium totam nisi dolore tempore, illum ab voluptate quis nostrum beatae ducimus repellendus. Iste temporibus ad doloribus laudantium repellat voluptas aperiam libero!</textarea>

@@ -11,7 +11,7 @@
     float: left;
 }
 .goListBtn{
-    background: url(../img/li.png) no-repeat;
+    background: url(../img/icons/li.png) no-repeat;
     background-size: cover;
     width: 30px;
     height: 30px;
@@ -21,7 +21,7 @@
     margin-top: 10px;
   }
   .goListBtn:hover{
-    background: url(../img/liHover.png) no-repeat;
+    background: url(../img/icons/liHover.png) no-repeat;
     background-size: cover;
   }
 .header{
@@ -66,10 +66,10 @@
     margin-right: 15px;
 }
 .reWrite{
-    background: url(../img/pen_2.png) no-repeat;
+    background: url(../img/icons/pen_2.png) no-repeat;
 }
 .delet{
-    background: url(../img/delet.png) no-repeat 2px 0px;
+    background: url(../img/icons/delet.png) no-repeat 2px 0px;
     background-size: 30px;
 }
 .writeconWrap {
@@ -80,7 +80,7 @@
 .left {
     width: 842px;
     height: 626px;
-    background: #F7F7F7 url(../img/addPic.png) no-repeat 245px 158px;
+    background: #F7F7F7 url(../img/icons/addPic.png) no-repeat 245px 158px;
     background-size: 355px;
     margin: 0;
 }

@@ -216,7 +216,7 @@ input[type="image"] {
 .thumbIcon {
     width: 30px;
     height: 32px;
-    background: url(../img/thumb.png);
+    background: url(../img/icons/thumb.png);
     background-size: cover;
     position: absolute;
     display:none;

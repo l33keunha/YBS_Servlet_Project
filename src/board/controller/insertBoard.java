@@ -63,7 +63,6 @@ public class insertBoard extends HttpServlet {
 			
 			while(files.hasMoreElements()) { //Element 있는만큼 
 				String name = files.nextElement(); 
-				
 				if(multi.getFilesystemName(name) != null) { //파일명이 있으면
 					saveFiles.add(multi.getFilesystemName(name)); //변경된 파일명 추가
 					originFiles.add(multi.getOriginalFileName(name)); //원본 파일명 추가
@@ -77,7 +76,7 @@ public class insertBoard extends HttpServlet {
 			BoardVO bVO = new BoardVO();
 			bVO.setTitle(title);
 			bVO.setContent(content);
-			
+		
 			ArrayList<Attachment> fileList = new ArrayList<Attachment>();
 			for(int i=originFiles.size()-1; i>=0; i--) { //사진 거꾸로 저장돼서 다시 거꾸로
 				Attachment a = new Attachment();
