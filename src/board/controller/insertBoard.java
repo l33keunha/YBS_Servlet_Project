@@ -46,7 +46,6 @@ public class insertBoard extends HttpServlet {
 			int maxSize = 1024*1024*10; // 10Mbyte로 전송파일 용량 제한
 			String root = request.getSession().getServletContext().getRealPath("/");
 			String savePath = root + "resources/img/contentImg";
-			System.out.println(savePath);
 			
 			File f = new File(savePath);
 			
