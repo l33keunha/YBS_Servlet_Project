@@ -33,32 +33,36 @@
                               <div class="thumbIcon"></div>
                               <input type="radio" id="check1" name="thumbnail" value="thumb1"><label for="check1" onclick="thumbClick(this)"></label>
                               <img id="contentImg1" src="resources/img/icons/addPic_2.png">
-                              <input type="button" class="addImages1" id="addImages1" value="Add file" onclick="addClick(this)">
-                              <input type="button" class="delImages1" id="delImages1" value="Delet file" onclick="delclick(this)">
+                              <input type="button" class="addImages" id="addImages1" value="Add file" onclick="addClick(this)">
+                              <input type="button" class="delImages" id="delImages1" value="Delet file" onclick="delclick(this)">
+                              <input type="file" id="thumbnailImg1" multiple="multiple" name="thumbnailImg1" onchange="LoadImg(this,1)">
                               <input type="hidden" name="status1" value="N">
                            </div>
                            <div>
                               <div class="thumbIcon"></div>
                               <input type="radio" id="check2" name="thumbnail" value="thumb2"><label for="check2" onclick="thumbClick(this)"></label>
                               <img id="contentImg2" src="resources/img/icons/addPic_2.png">
-                              <input type="button" class="addImages2" id="addImages2" value="Add file" onclick="addClick(this)">
-                              <input type="button" class="delImages2" id="delImages2" value="Delet file" onclick="delclick(this)">
+                              <input type="button" class="addImages" id="addImages2" value="Add file" onclick="addClick(this)">
+                              <input type="button" class="delImages" id="delImages2" value="Delet file" onclick="delclick(this)">
+                               <input type="file" id="thumbnailImg2" multiple="multiple" name="thumbnailImg2" onchange="LoadImg(this,2)">
                               <input type="hidden" name="status2" value="N">
                            </div>
                            <div>
                               <div class="thumbIcon"></div>
                               <input type="radio" id="check3" name="thumbnail" value="thumb3"><label for="check3" onclick="thumbClick(this)"></label>
                               <img id="contentImg3" src="resources/img/icons/addPic_2.png">
-                              <input type="button" class="addImages3" id="addImages3" value="Add file" onclick="addClick(this)">
-                              <input type="button" class="delImages3" id="delImages3" value="Delet file" onclick="delclick(this)">
+                              <input type="button" class="addImages" id="addImages3" value="Add file" onclick="addClick(this)">
+                              <input type="button" class="delImages" id="delImages3" value="Delet file" onclick="delclick(this)">
+                              <input type="file" id="thumbnailImg3" multiple="multiple" name="thumbnailImg3" onchange="LoadImg(this,3)">
                               <input type="hidden" name="status3" value="N">
                            </div>
                            <div>
                               <div class="thumbIcon"></div>
                               <input type="radio" id="check4" name="thumbnail" value="thumb4"><label for="check4" onclick="thumbClick(this)"></label>
                               <img id="contentImg4" src="resources/img/icons/addPic_2.png">
-                              <input type="button" class="addImages4" id="addImages4" value="Add file" onclick="addClick(this)">
-                              <input type="button" class="delImages4" id="delImages4" value="Delet file" onclick="delclick(this)">
+                              <input type="button" class="addImages" id="addImages4" value="Add file" onclick="addClick(this)">
+                              <input type="button" class="delImages" id="delImages4" value="Delet file" onclick="delclick(this)">
+                              <input type="file" id="thumbnailImg4" multiple="multiple" name="thumbnailImg4" onchange="LoadImg(this,4)">
                               <input type="hidden" name="status4" value="N">
                            </div>           
                        </div>
@@ -66,13 +70,7 @@
                        <div class="right">
                            <textarea name="content" id="comment" placeholder="문구입력..."></textarea>
                        </div>        
-                   </div>
-                   <div id="fileArea">
-	                  <input type="file" id="thumbnailImg1" multiple="multiple" name="thumbnailImg1" onchange="LoadImg(this,1)">
-	                  <input type="file" id="thumbnailImg2" multiple="multiple" name="thumbnailImg2" onchange="LoadImg(this,2)">
-	                  <input type="file" id="thumbnailImg3" multiple="multiple" name="thumbnailImg3" onchange="LoadImg(this,3)">
-	                  <input type="file" id="thumbnailImg4" multiple="multiple" name="thumbnailImg4" onchange="LoadImg(this,4)">
-               	   </div>                    
+                   </div>              
                </div>               
             </form>
          

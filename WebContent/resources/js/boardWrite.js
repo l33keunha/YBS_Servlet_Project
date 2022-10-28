@@ -1,7 +1,5 @@
 /*처음 파일 열었을때*/
 $(function(){
-	$("#fileArea").hide();
-	
 	$("#addImages2").hide();
 	$("#addImages3").hide();
 	$("#addImages4").hide();
@@ -10,27 +8,12 @@ $(function(){
 	$("#delImages2").hide();
 	$("#delImages3").hide();
 	$("#delImages4").hide();
-	
-	
 	});
 	
 /*add file 버튼 클릭할때*/	
 function addClick(e){
-	var btn = $(e).attr('class');
-	switch(btn){
-		case "addImages1":
-			$("#thumbnailImg1").click();
-		break;
-		case "addImages2":
-			$("#thumbnailImg2").click();
-		break;
-		case "addImages3":
-			$("#thumbnailImg3").click();
-		break;
-		case "addImages4":
-			$("#thumbnailImg4").click();
-		break;
-	}
+	var btn = $(e).attr('value');
+	$(e).siblings("input[type=file]").click();
 }
 
 /*첨부파일 이미지 띄우기*/
@@ -38,7 +21,7 @@ function LoadImg(value, num){ // num에 따라 src에 이미지를 집어넣는 
 	if(value.files && value.files[0]){
 		var reader = new FileReader();
 							
-		reader.onload = function(e){								
+		reader.onload = function(e){			
 			switch(num){
 				case 1: 
 					$("#contentImg1").attr("src", e.target.result);
@@ -69,43 +52,24 @@ function LoadImg(value, num){ // num에 따라 src에 이미지를 집어넣는 
 		reader.readAsDataURL(value.files[0]); // 여러 개중 0번째 있는 1개만 집어넣겠다
 	}
 }
+
+
 /*Delet file 버튼 클릭시*/
 function delclick(e){
-	var btn = $(e).attr('class');
-	switch(btn){
-		case "delImages1":
+	var btn = $(e).attr('value');
 			$(e).siblings("input[type=hidden]").attr('value','N');
-			$("#contentImg1").attr("src","resources/img/icons/addPic_2.png");
-			$("#delImages1").css("display","none");
+			$(e).siblings("img").attr("src","resources/img/icons/addPic_2.png");
+			$(e).css("display","none");
 			$(e).siblings(".thumbIcon").css("display", "none");
-			$(e).siblings("input:radio[name=thumbnail]:checked").attr("checked", false);
-		break;
-		case "delImages2":
-			$(e).siblings("input[type=hidden]").attr('value','N');
-			$("#contentImg2").attr("src","resources/img/icons/addPic_2.png");
-			$("#delImages2").css("display","none");
-			$(e).siblings(".thumbIcon").css("display", "none");
-			$(e).siblings("input:radio[name=thumbnail]:checked").attr("checked", false);
-		break;
-		case "delImages3":
-			$(e).siblings("input[type=hidden]").attr('value','N');
-			$("#contentImg3").attr("src","resources/img/icons/addPic_2.png");
-			$("#delImages3").css("display","none");
-			$(e).siblings(".thumbIcon").css("display", "none");
-			$(e).siblings("input:radio[name=thumbnail]:checked").attr("checked", false);
-		break;
-		case "delImages4":
-			$(e).siblings("input[type=hidden]").attr('value','N');
-			$("#contentImg4").attr("src","resources/img/icons/addPic_2.png");
-			$("#delImages4").css("display","none");
-			$(e).siblings(".thumbIcon").css("display", "none");
-			$(e).siblings("input:radio[name=thumbnail]:checked").attr("checked", false);
-		break;
-	}
+			$(e).siblings("input[type=file]").val(""); //file 초기화
+			$(e).siblings("input:radio[name=thumbnail]").prop("checked", false);
 }
 
-// 라디오 lavel 썸 체크
 
+
+
+
+// 라디오 lavel 썸 체크
 function thumbClick(e){
 	var btn = $(e).attr('for');
 	if($("input[name=thumbnail]:checked")){
@@ -118,6 +82,7 @@ function thumbClick(e){
 			 $(e).siblings("input[name=thumbnail]").attr('onclick','return(false);')
 	}
 }
+
 //thum 버큰 클릭 이벤트
 function switchValue(z){
 	var btn = $(z).attr('value');
@@ -129,18 +94,23 @@ function switchValue(z){
 	
 	switch(btn){
 		case 'Thumb':
-			if($("img").attr("src") === "resources/img/icons/addPic_2.png"){
-		$(z).disabled = true;
-	} else(
-			$("label").css("display", "block"),
-			$(z).disabled = false
-			)
+			if(($("input[name=status1]").val() === ("N")) && ($("input[name=status2]").val() === ("N")) && ($("input[name=status3]").val() === ("N")) && ($("input[name=status4]").val() === ("N"))){
+					$(z).disabled = true;
+				} else(
+					$("label").css("display", "block"),
+					$(z).disabled = false
+					)
+			$(".saveBtn").attr("disabled", "disabled");
+			$(".cancleBtn").attr("disabled", "disabled");
+			
 		break;
 		
 		
 		case 'Confirm':
 			$("label").css("display", "none");
 			$("#thumb").attr('value','Thumb');
+			$(".saveBtn").attr("disabled",false);
+			$(".cancleBtn").attr("disabled", false);
 			switch(inpt){
 				case 'thumb1':
 					$("input[value=thumb1]").siblings(".thumbIcon").css("display", "block");
@@ -238,6 +208,8 @@ function switchValue(z){
 
 /* 빈칸 알람 띄우기*/
 $( document ).ready(function() {
+	let cnt = 0;
+	const button = $("input[value=Thumb]");
     $('.saveBtn').click(function() {
 		if($("#title").val().length==0 && $("#comment").val().length!=0)
 			{ alert("제목을 입력하세요."); $("#title").focus(); return false; }
@@ -245,5 +217,10 @@ $( document ).ready(function() {
 			{ alert("내용을 입력하세요."); $("#comment").focus(); return false; }
 		else if($("#comment").val().length==0 && $("#title").val().length==0)
 			{ alert("제목과 내용을 입력하세요."); $("#title").focus(); return false; }
+			
+		if(($("input[name=status1]").val() === ("N")) && ($("input[name=status2]").val() === ("N")) && ($("input[name=status3]").val() === ("N")) && ($("input[name=status4]").val() === ("N")))
+			{alert("이미지를 넣어주세요."); return false;}
+		else if(($("input[name=status1]").val() !== ("Y")) && ($("input[name=status2]").val() !== ("Y")) && ($("input[name=status3]").val() !== ("Y")) && ($("input[name=status4]").val() !== ("Y")))
+			{alert("썸네일 이미지를 넣어주세요."); return false;}
 	})
 });
