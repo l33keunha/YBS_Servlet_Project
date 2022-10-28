@@ -2,6 +2,7 @@ package board.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import board.model.service.BoardService;
+import board.model.vo.Attachment;
 import board.model.vo.BoardVO;
 
 /**
@@ -32,11 +34,12 @@ public class selectBoardList extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		BoardService service = new BoardService();
-		ArrayList<BoardVO> list = service.selectBoardList();
 		
-		BoardVO vo = list.get(0);
+		Map<String, Object> map = service.selectBoardList();
 		
-		request.setAttribute("title", vo.getTitle());
+		System.out.println(map.get("aList"));
+		System.out.println(map.get("bList"));
+		
 		request.getRequestDispatcher("WEB-INF/views/boardList.jsp").forward(request, response);
 	}
 

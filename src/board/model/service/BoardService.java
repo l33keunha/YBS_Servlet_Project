@@ -1,6 +1,7 @@
 package board.model.service;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import board.model.DAO.BoardDAO;
 import board.model.vo.Attachment;
@@ -9,10 +10,8 @@ import board.model.vo.BoardVO;
 public class BoardService {
 	BoardDAO dao = new BoardDAO();
 	
-	public ArrayList<BoardVO> selectBoardList() {
-		ArrayList<BoardVO> list = dao.selectBoardList();
-		
-		return list;
+	public Map<String, Object> selectBoardList() {
+		return dao.selectBoardList();
 	}
 	
 	public int insertBoard(BoardVO bVO, ArrayList<Attachment> fileList){
@@ -31,6 +30,5 @@ public class BoardService {
 			return result;
 		}
 	}
-
 	
 }
