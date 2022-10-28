@@ -3,7 +3,9 @@ package board.controller;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Enumeration;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -76,13 +78,28 @@ public class insertBoard extends HttpServlet {
 			BoardVO bVO = new BoardVO();
 			bVO.setTitle(title);
 			bVO.setContent(content);
-		
+			
+			String[] arr = {multi.getParameter("status4"), multi.getParameter("status3"), 
+							multi.getParameter("status2"), multi.getParameter("status1")};
+			int num = 0;
+			
+			arr = Arrays.stream(arr)   // 배열을 순회
+	                   .filter(s -> !s.equals("N")) // 요소들을 조건에 따라 걸러내는 작업
+	                   .toArray(String[]::new);
+			
+			num = Arrays.asList(arr).indexOf("Y");
+			
 			ArrayList<Attachment> fileList = new ArrayList<Attachment>();
 			for(int i=originFiles.size()-1; i>=0; i--) { //사진 거꾸로 저장돼서 다시 거꾸로
 				Attachment a = new Attachment();
 				a.setImgpath(savePath);
 				a.setOriginname(originFiles.get(i));
 				a.setRename(saveFiles.get(i));
+				if(num == i) {
+					a.setThumbnailstatus("Y");
+				} else {
+					a.setThumbnailstatus("N");
+				}
 				
 				fileList.add(a);			
 			}

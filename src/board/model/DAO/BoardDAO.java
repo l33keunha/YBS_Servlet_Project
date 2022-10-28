@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import board.model.vo.Attachment;
 import board.model.vo.BoardVO;
@@ -20,23 +22,43 @@ public class BoardDAO {
 	PreparedStatement pstmt = null;
 	int result = 0;
 	
-	public ArrayList<BoardVO> selectBoardList() {
-		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
-		BoardVO vo = new BoardVO();
+	public Map<String, Object> selectBoardList() {
+		Map<String, Object> map = new HashMap<String, Object>();
+		ArrayList<BoardVO> bList = new ArrayList<BoardVO>();
+		ArrayList<Attachment> aList = new ArrayList<Attachment>();
 		
+		BoardVO bVO = new BoardVO();
+		Attachment aVO = new Attachment();
 		conn = template.getConnection();
-		query = "SELECT TITLE, CONTENT FROM BOARD";
+		query = "SELECT A.BNO, A.TITLE, A.CONTENT, A.MAIN_STATUS, B.IMG_PATH, B.THUMBNAIIL_STATUS \r\n"
+				+ "FROM board A,\r\n"
+				+ "BOARD_IMG B\r\n"
+				+ "WHERE 1=1\r\n"
+				+ "AND A.BNO = B.BNO(+)\r\n"
+				+ "AND B.THUMBNAIIL_STATUS ='Y' OR B.THUMBNAIIL_STATUS IS NULL\r\n"
+				+ "ORDER BY A.BNO DESC";
 		
 		try {
 			stmt = conn.createStatement();
 			rset = stmt.executeQuery(query);
 			
 			while(rset.next()) {
-				vo = new BoardVO();
-				vo.setTitle(rset.getString("TITLE"));
-				vo.setContent(rset.getString("CONTENT"));
-				list.add(vo);
+				bVO = new BoardVO();
+				bVO.setbNo(rset.getInt("BNO"));
+				bVO.setTitle(rset.getString("TITLE"));
+				bVO.setContent(rset.getString("CONTENT"));
+				bVO.setMainStatus(rset.getString("MAIN_STATUS"));
+				
+				aVO = new Attachment();
+				aVO.setbNo(rset.getInt("BNO"));
+				aVO.setImgpath(rset.getString("IMG_PATH"));
+				
+				bList.add(bVO);
+				aList.add(aVO);
 			}
+			
+			map.put("bList", bList);
+			map.put("aList", aList);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -44,7 +66,7 @@ public class BoardDAO {
 			template.close(rset);
 		}
 		
-		return list;
+		return map;
 	}
 	
 	public int insertBoard(BoardVO bVO){		
@@ -71,7 +93,7 @@ public class BoardDAO {
 	public int insertAttachment(ArrayList<Attachment> fileList, int bNo){
 		
 		conn = template.getConnection();
-		query = "INSERT INTO TASS.BOARD_IMG VALUES(?, ?, ?, ?, ?, 'N')";
+		query = "INSERT INTO TASS.BOARD_IMG VALUES(?, ?, ?, ?, ?, ?)";
 		int cnt = 1;
 			
 			try {
@@ -83,6 +105,7 @@ public class BoardDAO {
 					pstmt.setString(3, a.getOriginname());
 					pstmt.setString(4, a.getRename());
 					pstmt.setString(5, a.getImgpath());
+					pstmt.setString(6, a.getThumbnailstatus());
 					
 					result = pstmt.executeUpdate();
 				}
@@ -116,4 +139,5 @@ public class BoardDAO {
 		
 		return result;		
 	}
+	
 }
