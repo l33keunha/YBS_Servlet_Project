@@ -75,6 +75,7 @@ function delclick(e){
 	switch(btn){
 		case "delImages1":
 			$(e).siblings("input[type=hidden]").attr('value','N');
+			$("#thumbnailImg1").val("");
 			$("#contentImg1").attr("src","resources/img/icons/addPic_2.png");
 			$("#delImages1").css("display","none");
 			$(e).siblings(".thumbIcon").css("display", "none");
@@ -82,6 +83,7 @@ function delclick(e){
 		break;
 		case "delImages2":
 			$(e).siblings("input[type=hidden]").attr('value','N');
+			$("#thumbnailImg2").val("");
 			$("#contentImg2").attr("src","resources/img/icons/addPic_2.png");
 			$("#delImages2").css("display","none");
 			$(e).siblings(".thumbIcon").css("display", "none");
@@ -89,6 +91,7 @@ function delclick(e){
 		break;
 		case "delImages3":
 			$(e).siblings("input[type=hidden]").attr('value','N');
+			$("#thumbnailImg3").val("");
 			$("#contentImg3").attr("src","resources/img/icons/addPic_2.png");
 			$("#delImages3").css("display","none");
 			$(e).siblings(".thumbIcon").css("display", "none");
@@ -96,6 +99,7 @@ function delclick(e){
 		break;
 		case "delImages4":
 			$(e).siblings("input[type=hidden]").attr('value','N');
+			$("#thumbnailImg4").val("");
 			$("#contentImg4").attr("src","resources/img/icons/addPic_2.png");
 			$("#delImages4").css("display","none");
 			$(e).siblings(".thumbIcon").css("display", "none");
