@@ -27,7 +27,6 @@
             
             <div id="slider-wrapper">
                 <div class="overflow-wrapper">
-                    <a href="./reWrite.html">
                         <div class="con" id="con1">
                             <div class="pic">
                                 <button class="conBtn" id="btn" onclick="clickCounter(this)"></button>
@@ -46,7 +45,6 @@
                                 <button class="del"></button>
                             </div>
                         </div>
-                    </a>
                 </div>
             </div>
         </div>

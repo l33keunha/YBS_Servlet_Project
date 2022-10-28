@@ -32,30 +32,34 @@
                            <div>
                               <div class="thumbIcon"></div>
                               <input type="radio" id="check1" name="thumbnail" value="thumb1"><label for="check1" onclick="thumbClick(this)"></label>
-                              <input type="image" id="contentImg1" src="resources/img/icons/addPic_2.png"  onclick="return false;">
+                              <img id="contentImg1" src="resources/img/icons/addPic_2.png">
                               <input type="button" class="addImages1" id="addImages1" value="Add file" onclick="addClick(this)">
                               <input type="button" class="delImages1" id="delImages1" value="Delet file" onclick="delclick(this)">
+                              <input type="hidden" name="status1" value="N">
                            </div>
                            <div>
                               <div class="thumbIcon"></div>
                               <input type="radio" id="check2" name="thumbnail" value="thumb2"><label for="check2" onclick="thumbClick(this)"></label>
-                              <input type="image" id="contentImg2" src="resources/img/icons/addPic_2.png" onclick="return false;">
+                              <img id="contentImg2" src="resources/img/icons/addPic_2.png">
                               <input type="button" class="addImages2" id="addImages2" value="Add file" onclick="addClick(this)">
                               <input type="button" class="delImages2" id="delImages2" value="Delet file" onclick="delclick(this)">
+                              <input type="hidden" name="status2" value="N">
                            </div>
                            <div>
                               <div class="thumbIcon"></div>
                               <input type="radio" id="check3" name="thumbnail" value="thumb3"><label for="check3" onclick="thumbClick(this)"></label>
-                              <input type="image" id="contentImg3" src="resources/img/icons/addPic_2.png" onclick="return false;">
+                              <img id="contentImg3" src="resources/img/icons/addPic_2.png">
                               <input type="button" class="addImages3" id="addImages3" value="Add file" onclick="addClick(this)">
                               <input type="button" class="delImages3" id="delImages3" value="Delet file" onclick="delclick(this)">
+                              <input type="hidden" name="status3" value="N">
                            </div>
                            <div>
                               <div class="thumbIcon"></div>
                               <input type="radio" id="check4" name="thumbnail" value="thumb4"><label for="check4" onclick="thumbClick(this)"></label>
-                              <input type="image" id="contentImg4" src="resources/img/icons/addPic_2.png" onclick="return false;">
+                              <img id="contentImg4" src="resources/img/icons/addPic_2.png">
                               <input type="button" class="addImages4" id="addImages4" value="Add file" onclick="addClick(this)">
                               <input type="button" class="delImages4" id="delImages4" value="Delet file" onclick="delclick(this)">
+                              <input type="hidden" name="status4" value="N">
                            </div>           
                        </div>
                        
