@@ -219,7 +219,7 @@ $( document ).ready(function() {
 			{ alert("제목과 내용을 입력하세요."); $("#title").focus(); return false; }
 			
 		if(($("input[name=status1]").val() === ("N")) && ($("input[name=status2]").val() === ("N")) && ($("input[name=status3]").val() === ("N")) && ($("input[name=status4]").val() === ("N")))
-			{alert("이미지를 넣어주세요."); return false;}
+			{}
 		else if(($("input[name=status1]").val() !== ("Y")) && ($("input[name=status2]").val() !== ("Y")) && ($("input[name=status3]").val() !== ("Y")) && ($("input[name=status4]").val() !== ("Y")))
 			{alert("썸네일 이미지를 넣어주세요."); return false;}
 	})

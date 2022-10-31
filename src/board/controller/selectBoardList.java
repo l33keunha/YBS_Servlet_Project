@@ -40,6 +40,9 @@ public class selectBoardList extends HttpServlet {
 		System.out.println(map.get("aList"));
 		System.out.println(map.get("bList"));
 		
+		request.setAttribute("aList", map.get("aList"));
+		request.setAttribute("bList", map.get("bList"));
+		
 		request.getRequestDispatcher("WEB-INF/views/boardList.jsp").forward(request, response);
 	}
 
