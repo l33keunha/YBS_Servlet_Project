@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -17,19 +18,30 @@
                 <h1><a class="header" href="./main.html">INTERNI AND DECO</a></h1>
                 <button class="writeBtn" onclick="goLocation(this)"></button>
             </div>
-            <div class="list">
-                <div class="conwrap">
-                    <div class="table">
-                        <div class="tablehead">
-                            <span><%= request.getAttribute("title") %></span>
-                            <span>2022.01.01</span>
-                        </div>
-                           <div class="tablePic">
-                               <button class="mselect" id="mselect" onclick="importantClick(this)"></button>
-                           </div>
-                    </div>
-                </div>
-            </div>
+            
+	    	<div class="list">
+            <c:set var="i" value="0" />
+			<c:set var="j" value="4" />
+	    		<c:forEach items="${bList }" var="list">
+	        		<c:if test="${i%j == 0 }">
+	            		<div class="conwrap">
+	        		</c:if>
+	            	<div class="table">
+	                	<div class="tablehead">
+	                    	<span>${status.index}</span>
+	                    	<span>${list.title}</span>
+	                    	<span>${list.writtenDate }</span>
+	                	</div>
+	                	<div class="tablePic">
+	                    	<button class="mselect" id="mselect" onclick="importantClick(this)"></button>
+	                	</div>
+	            	</div>
+	            	<c:if test="${i%j == j-1 }">
+	        </div>
+	           	</c:if>
+			<c:set var="i" value="${i+1 }" />
+			</c:forEach>
+		</div>
 
         </div>
     </body>
