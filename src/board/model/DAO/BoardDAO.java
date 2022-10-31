@@ -30,7 +30,7 @@ public class BoardDAO {
 		BoardVO bVO = new BoardVO();
 		Attachment aVO = new Attachment();
 		conn = template.getConnection();
-		query = "SELECT A.BNO, A.TITLE, A.CONTENT, A.MAIN_STATUS, B.IMG_PATH, B.THUMBNAIIL_STATUS \r\n"
+		query = "SELECT A.BNO, A.TITLE, A.CONTENT, A.WRITTEN_DATE, A.MAIN_STATUS, B.IMG_PATH, B.THUMBNAIIL_STATUS \r\n"
 				+ "FROM board A,\r\n"
 				+ "BOARD_IMG B\r\n"
 				+ "WHERE 1=1\r\n"
@@ -47,11 +47,13 @@ public class BoardDAO {
 				bVO.setbNo(rset.getInt("BNO"));
 				bVO.setTitle(rset.getString("TITLE"));
 				bVO.setContent(rset.getString("CONTENT"));
+				bVO.setWrittenDate(rset.getDate("WRITTEN_DATE"));
 				bVO.setMainStatus(rset.getString("MAIN_STATUS"));
 				
 				aVO = new Attachment();
 				aVO.setbNo(rset.getInt("BNO"));
 				aVO.setImgpath(rset.getString("IMG_PATH"));
+				aVO.setThumbnailstatus(rset.getString("THUMBNAIIL_STATUS"));
 				
 				bList.add(bVO);
 				aList.add(aVO);
