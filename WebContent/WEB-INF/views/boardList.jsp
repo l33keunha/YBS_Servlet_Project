@@ -28,6 +28,7 @@
 			        </c:if>
 			        <div class="table">
 			        <div class="tablehead">
+			        	<span><input type="hidden" value="${list.bNo }" name="bNo"></span>
 				        <span>${status.index}</span>
 				        <span>${list.title}</span>
 				        <span>${list.writtenDate }</span>
