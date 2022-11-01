@@ -1,4 +1,3 @@
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -21,41 +20,39 @@
             </div>
             
 	    	<div class="list">
-            <c:set var="i" value="0" />
-			<c:set var="j" value="4" />
-	    		<c:forEach items="${bList}" var="list">
-	        		<c:if test="${i%j == 0 }">
-	            		<div class="conwrap">
-	        		</c:if>
-	            	<div class="table">
-	                	<div class="tablehead">
-	                    	<span>${list.title}</span>
-	                    	<span>${list.writtenDate }</span>
-	                	</div>
-	                	
-	                	<c:forEach items="${aList}" var="alist">
-	                	<c:if test="${list.bNo == alist.bNo }&& ${alist.rename !=null } ">
-	                	<div class="tablePic" style="background: url(resources/img/contentImg/${alist.rename});">
-	                	<img src=>
-	                    	<button class="mselect" id="mselect" onclick="importantClick(this)"></button>
-	                	</div>
-	                	</c:if>
-	                	
-	                	<c:if test="${list.bNo == alist.bNo }&& ${alist.rename ==null } ">
-	                	<div class="tablePic" style="background: url(resources/img/icons/addPic_2.png);">
-	                    	<button class="mselect" id="mselect" onclick="importantClick(this)"></button>
-	                	</div>
-	                	</c:if>
-	                	
-	                	</c:forEach>
-	            	</div>
-	            	<c:if test="${i%j == j-1 }">
+	            <c:set var="i" value="0" />
+		        <c:set var="j" value="4" />
+		        <c:forEach items="${bList }" var="list">
+			        <c:if test="${i%j == 0 }">
+			        	<div class="conwrap">
+			        </c:if>
+			        <div class="table">
+			        <div class="tablehead">
+			        	<span><input type="hidden" value="${list.bNo }" name="bNo"></span>
+				        <span>${status.index}</span>
+				        <span>${list.title}</span>
+				        <span>${list.writtenDate }</span>
+			        </div>
+			        <div class="tablePic">
+			        	<c:forEach items="${aList }" var = "aList">
+			        		<c:if test="${ list.bNo == aList.bNo &&  aList.rename != null }">
+			        			<img src="resources/img/contentImg/${aList.rename}" style="width: 268px; height: 157px;"> 
+		        			</c:if>
+	        				<c:if test="${ list.bNo == aList.bNo && aList.rename == null }">
+	        					<img src="resources/img/icons/addPic_2.png" style="width: 268px; height: 157px;">
+	        				</c:if>
+			        	</c:forEach>
+			        	<button class="mselect" id="mselect" onclick="importantClick(this)"></button>
+			        </div>
+		            </div>
+		            <c:if test="${i%j == j-1 }">
+			        	</div>
+			        </c:if>
+			        <c:set var="i" value="${i+1 }" />
+		        </c:forEach>
 	        </div>
-	           	</c:if>
-			<c:set var="i" value="${i+1 }" />
-			</c:forEach>
-		</div>
 
-        </div>
+	        
+		</div>
     </body>
 </html>
