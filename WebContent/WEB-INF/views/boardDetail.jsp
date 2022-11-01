@@ -9,6 +9,7 @@
         <link rel="stylesheet" type="text/css" href="resources/css/commonStyle.css">
         <link rel="stylesheet" type="text/css" href="resources/css/reWriteStyle.css">
         <script src="resources/js/main.js"></script>
+        <script src="resources/js/boardDetail.js"></script>
     </head>
     <body>
         <div class="wrap">
@@ -26,10 +27,22 @@
                 </div>
                 <div class="writeconWrap">
                     <div class="left">
-                        <input  type="image" name="button" src="resources/img/icons/pic1.jpg">
+                    	<div class="slider">
+							<div class="slide_viewer">
+							    <div class="slide_group">
+							    	<div class="slide" style="background:url(resources/img/icons/pic1.jpg); background-size: cover;"></div>
+									<div class="slide" style="background:url(resources/img/icons/pic2.png); background-size: cover;"></div>
+									<div class="slide" style="background:url(resources/img/icons/pic1.jpg); background-size: cover;"></div>
+									<div class="slide" style="background:url(resources/img/icons/pic2.png); background-size: cover;"></div>
+								</div>
+							</div>
+						</div><!-- End // .slider -->
+						
+						<div class="slide_buttons"></div>
                     </div>
+                    
                     <div class="right">
-                        <textarea name="text" id="comment" placeholder="문구입력...">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium totam nisi dolore tempore, illum ab voluptate quis nostrum beatae ducimus repellendus. Iste temporibus ad doloribus laudantium repellat voluptas aperiam libero!</textarea>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium totam nisi dolore tempore, illum ab voluptate quis nostrum beatae ducimus repellendus. Iste temporibus ad doloribus laudantium repellat voluptas aperiam libero!</p>
                     </div>
                 </div>
             </div>
