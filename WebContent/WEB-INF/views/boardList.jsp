@@ -1,3 +1,4 @@
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -22,19 +23,31 @@
 	    	<div class="list">
             <c:set var="i" value="0" />
 			<c:set var="j" value="4" />
-	    		<c:forEach items="${bList }" var="list">
+	    		<c:forEach items="${bList}" var="list">
 	        		<c:if test="${i%j == 0 }">
 	            		<div class="conwrap">
 	        		</c:if>
 	            	<div class="table">
 	                	<div class="tablehead">
-	                    	<span>${status.index}</span>
 	                    	<span>${list.title}</span>
 	                    	<span>${list.writtenDate }</span>
 	                	</div>
-	                	<div class="tablePic">
+	                	
+	                	<c:forEach items="${aList}" var="alist">
+	                	<c:if test="${list.bNo == alist.bNo }&& ${alist.rename !=null } ">
+	                	<div class="tablePic" style="background: url(resources/img/contentImg/${alist.rename});">
+	                	<img src=>
 	                    	<button class="mselect" id="mselect" onclick="importantClick(this)"></button>
 	                	</div>
+	                	</c:if>
+	                	
+	                	<c:if test="${list.bNo == alist.bNo }&& ${alist.rename ==null } ">
+	                	<div class="tablePic" style="background: url(resources/img/icons/addPic_2.png);">
+	                    	<button class="mselect" id="mselect" onclick="importantClick(this)"></button>
+	                	</div>
+	                	</c:if>
+	                	
+	                	</c:forEach>
 	            	</div>
 	            	<c:if test="${i%j == j-1 }">
 	        </div>
