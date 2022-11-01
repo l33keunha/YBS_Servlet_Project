@@ -58,6 +58,7 @@ public class BoardDAO {
 				
 				bList.add(bVO);
 				aList.add(aVO);
+			
 			}
 			
 			map.put("bList", bList);
@@ -141,6 +142,101 @@ public class BoardDAO {
 		}
 		
 		return result;		
+	}
+	
+	public int increaseCnt(int bNo) {
+		
+		conn = template.getConnection();
+		query = "UPDATE BOARD SET CNT=CNT+1 WHERE BNO=?";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, bNo);
+			result = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			template.commit(conn);
+			template.close(pstmt);
+		}
+		return result;
+	}
+	
+	public BoardVO selectBoardDetail(int bNo) {
+		BoardVO bVO = new BoardVO();
+		
+		conn = template.getConnection();
+		
+		query = "SELECT *\r\n"
+				+ "FROM BOARD \r\n"
+				+ "WHERE 1=1\r\n"
+				+ "AND BNO = ?";
+  			
+			try {
+				
+				pstmt = conn.prepareStatement(query);
+				pstmt.setInt(1, bNo);
+				
+				rset = pstmt.executeQuery();
+				
+				while(rset.next()) {
+					bVO = new BoardVO();
+					bVO.setbNo(rset.getInt("BNO"));
+					bVO.setName(rset.getString("NAME"));
+					bVO.setTitle(rset.getString("TITLE"));
+					bVO.setContent(rset.getString("CONTENT"));
+					bVO.setWrittenDate(rset.getDate("WRITTEN_DATE"));
+					bVO.setUpdateDate(rset.getDate("UPDATE_DATE"));
+					bVO.setDeleteDate(rset.getDate("DELETE_DATE"));
+					bVO.setCateNo(rset.getInt("CATE_NO"));
+					bVO.setCnt(rset.getInt("CNT"));
+					bVO.setMainStatus(rset.getString("MAIN_STATUS"));
+					bVO.setLikeCnt(rset.getInt("LIKE_CNT"));
+					bVO.setStatus(rset.getString("STATUS"));
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
+		return bVO;
+	}
+
+	public ArrayList<Attachment> selectImageDetail(int bNo) {
+		ArrayList<Attachment> aList = new ArrayList<Attachment>();
+		Attachment aVO = new Attachment();
+		
+		conn = template.getConnection();
+		
+		query = "SELECT *\r\n"
+				+ "FROM BOARD_IMG \r\n"
+				+ "WHERE 1=1\r\n"
+				+ "AND BNO = ? "
+				+ "ORDER BY IMGNO";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, bNo);
+			
+			rset = pstmt.executeQuery();
+										
+			while(rset.next()) {				
+				for(int i=0; i<aList.size(); i++) {
+					aVO = new Attachment();	
+					aVO.setImgNo(rset.getInt("IMGNO"));
+					aVO.setOriginname(rset.getString("ORIGIN_NAME"));
+					aVO.setRename(rset.getString("RE_NAME"));
+					aVO.setImgpath(rset.getString("IMG_PATH"));
+					aVO.setThumbnailstatus(rset.getString("THUMBNAIIL_STATUS"));
+					
+					aList.add(aVO);	
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		System.out.println(aList.get(0));
+		return aList;
 	}
 	
 }

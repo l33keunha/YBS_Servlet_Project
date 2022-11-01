@@ -11,6 +11,7 @@ public class BoardVO {
 	private Date updateDate;
 	private Date deleteDate;
 	private int cateNo;
+	private int cnt;
 	private String mainStatus;
 	private int likeCnt;
 	private String status;
@@ -18,7 +19,7 @@ public class BoardVO {
 	public BoardVO() {}
 
 	public BoardVO(int bNo, String name, String title, String content, Date writtenDate, Date updateDate, Date deleteDate,
-			int cateNo, String mainStatus, int likeCnt, String status) {
+			int cateNo, int cnt, String mainStatus, int likeCnt, String status) {
 		super();
 		this.bNo = bNo;
 		this.name = name;
@@ -28,6 +29,7 @@ public class BoardVO {
 		this.updateDate = updateDate;
 		this.deleteDate = deleteDate;
 		this.cateNo = cateNo;
+		this.cnt = cnt;
 		this.mainStatus = mainStatus;
 		this.likeCnt = likeCnt;
 		this.status = status;
@@ -97,6 +99,14 @@ public class BoardVO {
 		this.cateNo = cateNo;
 	}
 
+	public int getCnt() {
+		return cnt;
+	}
+
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
+	}
+	
 	public String getMainStatus() {
 		return mainStatus;
 	}
@@ -124,7 +134,7 @@ public class BoardVO {
 	@Override
 	public String toString() {
 		return "BoardVO [bNo=" + bNo + ", name=" + name + ", title=" + title + ", content=" + content + ", writtenDate="
-				+ writtenDate + ", updateDate=" + updateDate + ", deleteDate=" + deleteDate + ", cateNo=" + cateNo
+				+ writtenDate + ", updateDate=" + updateDate + ", deleteDate=" + deleteDate + ", cateNo=" + cateNo + ", cnt=" + cnt
 				+ ", mainStatus=" + mainStatus + ", likeCnt=" + likeCnt + ", status=" + status + "]";
 	}
 	
