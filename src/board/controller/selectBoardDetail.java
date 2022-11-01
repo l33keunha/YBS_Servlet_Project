@@ -32,10 +32,9 @@ public class selectBoardDetail extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		BoardService service = new BoardService();
 		
-		System.out.println(request.getParameter("bNo"));
 		
 //		int bNo = Integer.parseInt(request.getParameter("bNo"));
-		int bNo = 371;
+		int bNo = Integer.parseInt(request.getParameter("bNo"));
 
 		Map<String, Object> map = service.selectBoardDetail(bNo);
 		

@@ -197,6 +197,9 @@ public class BoardDAO {
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
+			} finally {
+				template.close(pstmt);
+				template.close(rset);
 			}
 
 		return bVO;
@@ -207,8 +210,7 @@ public class BoardDAO {
 		Attachment aVO = new Attachment();
 		
 		conn = template.getConnection();
-		
-		query = "SELECT *\r\n"
+		query = "SELECT * \r\n"
 				+ "FROM BOARD_IMG \r\n"
 				+ "WHERE 1=1\r\n"
 				+ "AND BNO = ? "
@@ -220,22 +222,23 @@ public class BoardDAO {
 			
 			rset = pstmt.executeQuery();
 										
-			while(rset.next()) {				
-				for(int i=0; i<aList.size(); i++) {
-					aVO = new Attachment();	
-					aVO.setImgNo(rset.getInt("IMGNO"));
-					aVO.setOriginname(rset.getString("ORIGIN_NAME"));
-					aVO.setRename(rset.getString("RE_NAME"));
-					aVO.setImgpath(rset.getString("IMG_PATH"));
-					aVO.setThumbnailstatus(rset.getString("THUMBNAIIL_STATUS"));
-					
-					aList.add(aVO);	
-				}
+			while(rset.next()) {	
+				aVO = new Attachment();	
+				aVO.setbNo(rset.getInt("BNO"));
+				aVO.setImgNo(rset.getInt("IMGNO"));
+				aVO.setOriginname(rset.getString("ORIGIN_NAME"));
+				aVO.setRename(rset.getString("RE_NAME"));
+				aVO.setImgpath(rset.getString("IMG_PATH"));
+				aVO.setThumbnailstatus(rset.getString("THUMBNAIIL_STATUS"));
+				
+				aList.add(aVO);	
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			template.close(pstmt);
+			template.close(rset);
 		}
-		System.out.println(aList.get(0));
 		return aList;
 	}
 	
