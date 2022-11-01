@@ -27,23 +27,23 @@
 			        	<div class="conwrap">
 			        </c:if>
 			        <div class="table">
-			        <div class="tablehead">
-			        	<span><input type="hidden" value="${list.bNo }" name="bNo"></span>
-				        <span>${status.index}</span>
-				        <span>${list.title}</span>
-				        <span>${list.writtenDate }</span>
-			        </div>
-			        <div class="tablePic">
-			        	<c:forEach items="${aList }" var = "aList">
-			        		<c:if test="${ list.bNo == aList.bNo &&  aList.rename != null }">
-			        			<img src="resources/img/contentImg/${aList.rename}" style="width: 268px; height: 157px;"> 
-		        			</c:if>
-	        				<c:if test="${ list.bNo == aList.bNo && aList.rename == null }">
-	        					<img src="resources/img/icons/addPic_2.png" style="width: 268px; height: 157px;">
-	        				</c:if>
-			        	</c:forEach>
-			        	<button class="mselect" id="mselect" onclick="importantClick(this)"></button>
-			        </div>
+				        <div class="tablehead">
+				        	<span><input type="hidden" value="${list.bNo }" name="bNo"></span>
+					        <span>${status.index}</span>
+					        <span>${list.title}</span>
+					        <span>${list.writtenDate }</span>
+				        </div>
+				        <div class="tablePic" onclick="goLocation(this)">
+				        	<c:forEach items="${aList }" var = "aList">
+				        		<c:if test="${ list.bNo == aList.bNo &&  aList.rename != null }">
+				        			<img src="resources/img/contentImg/${aList.rename}" style="width: 268px; height: 157px;"> 
+			        			</c:if>
+		        				<c:if test="${ list.bNo == aList.bNo && aList.rename == null }">
+		        					<img src="resources/img/icons/addPic_2.png" style="width: 268px; height: 157px;">
+		        				</c:if>
+				        	</c:forEach>
+				        	<button class="mselect" id="mselect" onclick="importantClick(this)"></button>
+				        </div>
 		            </div>
 		            <c:if test="${i%j == j-1 }">
 			        	</div>
