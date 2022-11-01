@@ -1,11 +1,15 @@
 package board.controller;
 
 import java.io.IOException;
+import java.util.Map;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import board.model.service.BoardService;
 
 /**
  * Servlet implementation class selectBoardDetail
@@ -26,8 +30,21 @@ public class selectBoardDetail extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("WEB-INF/views/boardDetail.jsp").forward(request, response);
-		System.out.println(request.getParameter("bNo"));
+		BoardService service = new BoardService();
+		
+		
+//		int bNo = Integer.parseInt(request.getParameter("bNo"));
+		int bNo = Integer.parseInt(request.getParameter("bNo"));
+
+		Map<String, Object> map = service.selectBoardDetail(bNo);
+		
+		System.out.println(map.get("aList"));
+		System.out.println(map.get("bVO"));
+		
+//		request.setAttribute("aList", map.get("aList"));
+//		request.setAttribute("bVO", map.get("bVO"));		
+		
+//		request.getRequestDispatcher("WEB-INF/views/boardDetail.jsp").forward(request, response);		
 	}
 
 	/**
