@@ -49,6 +49,9 @@
     width: 685px;
     height: 29px;
     border-bottom: 1px solid #D0D0D0;
+    border-left: none;
+    border-right: none;
+    border-top: none;
     font-family: 'Caladea';
     font-style: normal;
     font-weight: 700;
@@ -90,7 +93,7 @@
     height: 623px;
     border: 1.5px solid #D0D0D0;
 }
-textarea#comment {
+.right > p {
     width: 97%;
     height: 99%;
     font-family: 'Baloo Bhaina 2','Amethysta';
@@ -104,18 +107,84 @@ textarea#comment {
     padding: 3px 0px 0px 10px;
     border: none;
 }
-textarea::placeholder{
-    font-family: 'Baloo Bhaina 2','Amethysta';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 40px;
-    color: #A2A2A2;
+
+.leftWrap{ 
+    display: flex; 
+    height: 626px; 
+    width:400%;
+    transition-property: transform; /* transform 속성에대해, js코드에 의해 transform 스타일 추가된다*/
+    transition-duration: 1s; /* transition 지속시간 */
 }
-input[type="image"] {
-    width: 100%;
-    height: 100%;
+
+
+
+
+.slider {
+  margin: 0 auto;
+  max-width: 940px;
+}
+
+.slide_viewer {
+      height: 626px;
+    overflow: hidden;
     position: relative;
-    top: 0;
-    float: left;
 }
+
+.slide_group {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.slide {
+  display: none;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+.slide:first-child {
+  display: block;
+}
+
+.slide:nth-of-type(1) {
+  background: #D7A151;
+}
+
+.slide:nth-of-type(2) {
+  background: #F4E4CD;
+}
+
+.slide:nth-of-type(3) {
+  background: #C75534;
+}
+
+.slide:nth-of-type(4) {
+  background: #D1D1D4;
+}
+
+.slide_buttons {
+      left: 0;
+    position: relative;
+    right: 0;
+    text-align: center;
+    width: 842px;
+}
+
+a.slide_btn {
+  color: #c0c0c0;
+  font-size: 42px;
+  margin: 0 0.175em;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  line-height: 23px;
+}
+
+.slide_btn.active, .slide_btn:hover {
+  color:#8a8fbc;
+  cursor: pointer;
+}
+
