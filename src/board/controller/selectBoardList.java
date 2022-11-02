@@ -37,9 +37,6 @@ public class selectBoardList extends HttpServlet {
 		
 		Map<String, Object> map = service.selectBoardList();
 		
-		System.out.println(map.get("aList"));
-		System.out.println(map.get("bList"));
-		
 		request.setAttribute("aList", map.get("aList"));
 		request.setAttribute("bList", map.get("bList"));
 		

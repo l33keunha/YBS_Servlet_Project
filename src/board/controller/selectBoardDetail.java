@@ -32,8 +32,6 @@ public class selectBoardDetail extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		BoardService service = new BoardService();
 		
-		
-//		int bNo = Integer.parseInt(request.getParameter("bNo"));
 		int bNo = Integer.parseInt(request.getParameter("bNo"));
 
 		Map<String, Object> map = service.selectBoardDetail(bNo);
@@ -41,10 +39,10 @@ public class selectBoardDetail extends HttpServlet {
 		System.out.println(map.get("aList"));
 		System.out.println(map.get("bVO"));
 		
-//		request.setAttribute("aList", map.get("aList"));
-//		request.setAttribute("bVO", map.get("bVO"));		
+		request.setAttribute("aList", map.get("aList"));
+		request.setAttribute("bVO", map.get("bVO"));		
 		
-//		request.getRequestDispatcher("WEB-INF/views/boardDetail.jsp").forward(request, response);		
+		request.getRequestDispatcher("WEB-INF/views/boardDetail.jsp").forward(request, response);		
 	}
 
 	/**
